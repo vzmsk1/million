@@ -1,0 +1,10 @@
+.partners {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    border-bottom: 1px solid #C7C7C7;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

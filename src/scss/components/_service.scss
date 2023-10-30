@@ -1,0 +1,258 @@
+.service {
+    margin-bottom: 18rem;
+    &__title {
+        font-size: 7.4rem;
+        line-height: 127.027%;
+        margin-bottom: 6rem;
+        text-transform: uppercase;
+    }
+
+    &__wrapper {
+        display: flex;
+       
+    }
+
+    &__left {
+        margin-right: 2rem;
+    }
+
+    &__center {
+        margin-right: 2rem;
+    }
+
+    &__left-inner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__tourist {
+        width: 27rem;
+        height: 27rem;
+        border-radius: 2rem;
+        background: #FFF;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        margin-right: 2rem;
+        display: block;
+        margin-bottom: 2rem;
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 2.5rem;
+        }
+
+        &-image {
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 21rem;
+            height: 16.9rem;
+        }
+    }
+
+    &__bank {
+        width: 27rem;
+        height: 27rem;
+        border-radius: 2rem;
+        background: #3C6A75;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        display: block;
+        margin-bottom: 2rem;
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow-w.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        &-image {
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 21rem;
+            height: 16.9rem;
+        }
+    }
+
+    &__slicing {
+        width: 56rem;
+        height: 27rem;
+        border-radius: 2rem;
+        background: #fff;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        display: block;
+       
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 2.5rem;
+           
+        }
+
+        &-image {
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 27rem;
+            height: 22rem;
+        }
+    }
+
+    &__nutrition {
+        width: 70.5rem;
+        height: 56rem;
+        border-radius: 2rem;
+        background: #F1CF57;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow-w.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 4rem;
+            color: #fff;
+            text-align: center;
+            max-width: 32.6rem;
+            margin: 0 auto;
+           
+        }
+
+        &-image {
+            position: initial;
+            bottom:0;
+            right: 0;
+            width: 51.2rem;
+            height: 37.7rem;
+            margin: 0 auto;
+            margin-top: auto;
+        }
+    }
+
+    &__cutting {
+        width: 41.5rem;
+        height: 27rem;
+        border-radius: 2rem;
+        background: #fff;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        display: block;
+        margin-bottom: 2rem;
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 2.5rem;
+           
+        }
+
+        &-image {
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 26rem;
+            height: 16.9rem;
+        }
+    }
+
+    &__repair {
+        width: 41.5rem;
+        height: 27rem;
+        border-radius: 2rem;
+        background: #ED1E79;
+        overflow: hidden;
+        position: relative;
+        padding-top: 3.2rem;
+        padding-left: 2.4rem;
+        display: block;
+      
+        &::before {
+            position: absolute;
+            content:'';
+            width: 1.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/catalog-t/arrow-w.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 2.4rem;
+            bottom: 3.2rem;
+        }
+
+        &-title {
+            font-size: 2.5rem;
+            color: #fff;
+           
+        }
+
+        &-image {
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 26rem;
+            height: 16.9rem;
+        }
+    }
+
+}
