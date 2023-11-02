@@ -129,6 +129,10 @@
             }
         }
 
+        &-bg-m {
+            display: none;
+        }
+
         &-wrapper {
             display: flex;
             justify-content: space-between;
@@ -154,6 +158,10 @@
             line-height: 140%;
             width: 30.2rem;
             margin-bottom: 2.4rem;
+        }
+
+        &-text-mob {
+            display: none;
         }
 
         &-right {
@@ -182,6 +190,166 @@
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
                 bottom: 0;
+            }
+        }
+    }
+
+
+    &__mobile {
+        display: none;
+    }
+
+    
+
+}
+
+
+@media (max-width: 48em) {
+
+    .main {
+
+        .container {
+            padding: 0;
+        }
+        &__mobile {
+            display: flex;
+            flex-direction: column;
+           
+            &-title {
+                font-size: 6.4rem;
+                text-transform: uppercase;
+                margin-bottom: 3.2rem;
+                padding: 0 4rem;
+            }
+
+            &-inner {
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid  #C7C7C7;
+                padding: 3.2rem 4rem;
+                margin-bottom: 6.4rem;
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+
+                strong {
+                    display: block;
+                    font-size: 2rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    display: block;
+                    font-size: 2.4rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            padding: 0 4rem;
+        }
+
+        &__swiper-one {
+            width: 100%;
+            height: 28.2rem;
+            border-radius: 3.2rem;
+            margin-bottom: 2rem;
+            order: 2;
+        }
+
+        &__one-s {
+            &-content {
+                width: 100%;
+                max-width: 100%;
+                height: 28.2rem;
+                border-radius: 3.2rem;
+            }
+        }
+
+        &__swiper-two {
+            width: 100%;
+            height: 39.2rem;
+            border-radius: 3.2rem;
+            margin-bottom: 2rem;
+            order: 1;
+        }
+
+        &__stock {
+            width: 100%;
+            order: 3;
+        }
+
+
+        &__slide-t {
+            &-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items:center;
+            }
+
+            &-left {
+                display: flex;
+                justify-content: center;
+                align-items:center;
+            }
+
+            &-right{
+                display: none;
+            }
+
+            &-text {
+                
+                display: none;
+
+            }
+
+            &-text-mob {
+                display: block;
+                padding: 4rem;
+                width: 38rem;
+                background: #fff;
+                font-size: 2.4rem;
+                color: #1C1C1C;
+                font-weight: 800;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+         
+
+            &-date {
+                display: none;
+            }
+
+            .btn {
+                display: none;
+            }
+            &-content {
+                height: 39.2rem;
+                &::after {
+                    position: absolute;
+                    content:'';
+                    width: 100%;
+                    border-radius: 0px 0px 3.2rem 3.2rem;
+                    background: rgba(28, 28, 28, 0.20);
+                    backdrop-filter: blur(2px);
+                    bottom: 0;
+                    z-index: 2;
+                }
+            }
+            &-bg-m {
+                display: block;
+                object-fit: cover;
+            }
+
+            &-bg-d {
+                display: none;
             }
         }
     }

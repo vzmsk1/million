@@ -1,16 +1,9 @@
+import $ from 'jquery';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-// import Swiper and modules styles
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 // init Swiper:
-const swiper = new Swiper('.swiper', {
-  // configure Swiper to use modules
-  modules: [Navigation, Pagination,],
-
-});
 
 const rem = function (rem) {
 	if ($(window).width() > 768) {
@@ -21,23 +14,22 @@ const rem = function (rem) {
 };
 
 const mainSwiperOne = new Swiper('.main__swiper-one', {
-		
+		modules: [Navigation, Pagination, EffectFade],
 		slidesPerView: 1,
 		wrapperClass: 'main__swiper-wrapper-one',
 		slideClass: 'main__one-s',
 		speed: 500,
-		modules: [EffectFade],
 		effect: 'fade',
 		fadeEffect: {
 		  crossFade: true
 		},
-	
+		
 	
 	
 });
 	
 const mainSwiperTwo = new Swiper('.main__swiper-two', {
-		
+		modules: [Navigation, Pagination, EffectFade],
 		slidesPerView: 1,
 		wrapperClass: 'main__swiper-wrapper-two',
 		slideClass: 'main__slide-t',

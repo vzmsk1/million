@@ -5,3 +5,17 @@ const rem = function (rem) {
 		return (100 / 390) * (0.1 * $(window).width()) * rem;
 	}
 };
+
+$( document ).ready(function() {
+    $(".header__bottom-mob-burger").on('click', function() {
+		$(".header__nav-mob").toggleClass("open-nav");
+		$(".header").toggleClass("header--active");
+		// $("main").toggleClass("main-none")
+	});
+	
+	$(".header__bottom-mob-burger").on('click', function() {
+		$(".header__bottom-mob-burger").toggleClass("open");
+		// $("main").toggleClass("main-none")
+	});
+	
+});

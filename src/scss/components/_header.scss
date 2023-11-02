@@ -144,4 +144,162 @@
             margin-right: 0;
         }
     }
+    &__top-mob {
+        display: none;
+    }
+
+    &__bottom-mob {
+        display: none;
+    }
+
+    
 }
+
+
+@media (max-width: 48em) {
+
+ .header {
+    &__top {
+        display: none;
+    }
+
+    &__top-mob {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2.4rem;
+        &-geo {
+            width: 4.8rem;
+            height: 4.8rem;
+            display: block;
+        }
+
+        &-logo {
+            display: block;
+            width: 21.6rem;
+            height: 7.6rem;
+        }
+
+        &-phone {
+            width: 4.8rem;
+            height: 4.8rem;
+            display: block;
+        }
+    }
+
+    &__bottom {
+        display: none;
+    }
+
+    &__bottom-mob {
+        display: flex;
+        align-items: center;
+
+       
+         &-burger {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            padding: 1.8rem;
+            width: 8.4rem;
+            height: 8.4rem;
+            border-radius: 2rem;
+            background:  #ED1E79;
+            position: relative;
+            transition-duration: 1s;
+            cursor: pointer;
+            margin-right: 1.6rem;
+            z-index: 4;
+            span {
+                height: 0.4rem;
+                width: 4rem;
+                background-color: #fff;
+                border-radius: 5rem;
+                position: absolute;
+                transition-duration: .25s;
+                transition-delay: .25s;    
+                &::before {
+                    left: 0;
+                    position: absolute;
+                    top: -7px;
+                    height: 0.4rem;
+                    width: 4rem;
+                    background-color: #fff;
+                    border-radius: 5rem;
+                    content: "";
+                    transition-duration: .25s;
+                    transition: transform .25s, top .25s .25s;
+                }
+    
+                &::after {
+                    left: 0;
+                    position: absolute;
+                    top: 7px;
+                    height: 0.4rem;
+                    width: 4rem;
+                    background-color: #fff;
+                    border-radius: 5rem;
+                    content: "";
+                    transition-duration: .25s;
+                    transition: transform .25s, top .25s .25s;
+                }
+            }
+    
+         
+        }
+
+        &-burger.open {
+            span {
+                transition-duration: 0.1s;
+                transition-delay: .25s;
+                background: transparent;
+            }
+            span:before {
+                transition: top .25s, transform .25s .25s;
+                top: 0px;
+                transform: rotateZ(-45deg);
+            }
+            span:after {
+                transition: top 0.4s, transform .25s .25s;
+                top: 0px;
+                transform: rotateZ(45deg);
+            }
+        }
+
+        &-search {
+            width: 61rem;
+            height: 8.4rem;
+            position: relative;
+            &::before {
+                position: absolute;
+                content:'';
+
+            }
+            input {
+                width: 100%;
+                height: 100%;
+                padding-left: 4rem;
+                padding-right: 4rem;
+                border-radius: 2rem;
+                background:  #FFF;
+                font-size: 2.8rem;
+                line-height: 135.714%;
+                &::placeholder {
+                    color:  #9293B0;
+                }
+            }
+            
+        }
+    
+    }
+
+    .open-nav {
+        left: 0;
+        top: 0;
+        padding-top: 30rem;
+        transition: left 0.5s;
+    }
+
+ }   
+}
+
+
