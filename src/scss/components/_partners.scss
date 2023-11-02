@@ -7,4 +7,50 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    &__wrapper-mob {
+        display: none;
+    }
+}
+
+
+@media (max-width: 48em) {
+    .partners {
+        border-top: 1px solid #C7C7C7;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        margin-bottom: 18rem;
+
+        &__wrapper {
+            display: none;
+        }
+
+       
+
+        &__wrapper-mob {
+			display: flex;
+			width: 100%;
+			justify-content: initial;
+			align-items: initial;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			white-space: nowrap;
+			-webkit-overflow-scrolling: touch;
+			padding: 0;
+			
+		}
+        &__wrapper-mob-inner {
+            display: flex;
+            align-items:center;
+        }
+
+		&__wrapper-mob::-webkit-scrollbar {
+			display: none;
+		}
+
+        &__logo {
+            margin-right: 4rem;
+        }
+       
+    }
 }

@@ -10,7 +10,10 @@
         overflow: hidden;
         border-radius:2rem;
         margin-right: 2rem;
+        position: relative;
     }
+
+   
 
     &__one-s {
         margin-right: 2rem;
@@ -36,6 +39,10 @@
                 object-fit: cover;
                 border-radius: 2rem;
             }
+        }
+
+        &-image-m {
+            display: none;
         }
         
         &-inner {
@@ -65,6 +72,7 @@
         padding: 5rem 4rem;
         display: flex;
         flex-direction: column;
+        margin-right: 2rem;
         &-icon {
             width: 7rem;
             height: 7rem;
@@ -103,7 +111,7 @@
         height: 55rem;
         border-radius:2rem;
         overflow: hidden;
-
+        position: relative;
        
 
         
@@ -166,6 +174,7 @@
 
         &-right {
             padding-top: 14.9rem;
+            width: 29.3rem;
         }
         
         &-icon {
@@ -207,7 +216,7 @@
 @media (max-width: 48em) {
 
     .main {
-
+        margin-bottom: 6.4rem;
         .container {
             padding: 0;
         }
@@ -261,6 +270,7 @@
             border-radius: 3.2rem;
             margin-bottom: 2rem;
             order: 2;
+            position: relative;
         }
 
         &__one-s {
@@ -270,6 +280,22 @@
                 height: 28.2rem;
                 border-radius: 3.2rem;
             }
+
+
+            &-image-m {
+                display: block;
+            }
+
+            &-image-d {
+                display: none;
+            }
+
+            &-text {
+                font-size: 2.4rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 140%;
+            }
         }
 
         &__swiper-two {
@@ -278,25 +304,62 @@
             border-radius: 3.2rem;
             margin-bottom: 2rem;
             order: 1;
+            position: relative;
         }
 
         &__stock {
             width: 100%;
             order: 3;
+            height: 28.2rem;
+            background-image: url(./assets/images/main/yellow-mob.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            flex-direction: column-reverse;
+            padding-top: 4rem;
+            padding-bottom: 4.4rem;
+            padding-left: 4rem;
+            margin-right: 0;
+            &-icon {
+                display: none;
+            }
+
+            &-text {
+                font-size: 2.4rem;
+                line-height: 140%;
+                margin-top: initial;
+                width: 43.2rem;
+                margin-bottom: auto;
+            }
+
+            &-link {
+                font-size: 2.4rem;
+                padding-bottom: 0;
+                width: fit-content;
+                padding-right: 6.2rem;
+                &::before {
+                    width: 4.8rem;
+                    height: 2.4rem;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(0,-50%);
+                    background-image: url(./assets/images/icon/small-w-arrow.svg);
+                }
+            }
         }
 
 
         &__slide-t {
             &-wrapper {
+                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items:center;
+              
             }
 
             &-left {
-                display: flex;
-                justify-content: center;
-                align-items:center;
+               width: fit-content;
+               
             }
 
             &-right{
@@ -332,6 +395,7 @@
             }
             &-content {
                 height: 39.2rem;
+                width: 100%;
                 &::after {
                     position: absolute;
                     content:'';

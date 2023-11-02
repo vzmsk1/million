@@ -17,5 +17,13 @@ $( document ).ready(function() {
 		$(".header__bottom-mob-burger").toggleClass("open");
 		// $("main").toggleClass("main-none")
 	});
+
+
+
+	$( ".catalog-t__box" ).hover( function(){
+		$(this).toggleClass('active');
+	});
+		
+	
 	
 });

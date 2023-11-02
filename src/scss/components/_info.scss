@@ -188,4 +188,71 @@
             }
         }
     }
+
+    &__mob {
+        display: none;
+    }
+}
+
+
+@media (max-width: 48em) {
+
+    .info {
+        border-bottom: none;
+        margin-bottom: 18rem;
+        &__wrapper {
+            border-bottom: none;
+        }
+        &__left {
+            display: none;
+        }
+
+        &__right {
+            display: none;
+        }
+
+        &__mob {
+            display: flex;
+            justify-content: space-between;
+
+            &-navigation {
+                display: flex;
+                flex-direction: column;
+                min-width: 40.2rem;
+                margin-right: 4rem;
+                strong {
+                    display: block;
+                    font-size: 4rem;
+                    margin-bottom: 1.2rem;
+                }
+
+                span {
+                    color: #808080;
+                    font-size: 2.8rem;
+                    line-height: 135.714%;
+                    display: block;
+                }
+
+                
+            }
+
+            &-link {
+                display: block;
+                font-size: 2.4rem;
+                line-height: 140%;
+                padding-bottom: 6.4rem;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    content:'';
+                    width: 20.8rem;
+                    height: 8rem;
+                    bottom: 0;
+                    background-image: url(./assets/images/icon/mobile-big-arrow.svg);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
 }

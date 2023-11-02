@@ -19,10 +19,18 @@ const mainSwiperOne = new Swiper('.main__swiper-one', {
 		wrapperClass: 'main__swiper-wrapper-one',
 		slideClass: 'main__one-s',
 		speed: 500,
+		autoplay: 1000,
 		effect: 'fade',
 		fadeEffect: {
 		  crossFade: true
 		},
+
+		on: {
+			slideChange: function (mainSwiperOne) {
+				$('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-active');
+				$('.swiper-pagination-bullet:nth-child('+ (mainSwiperOne.realIndex % 3 + 1) +')').addClass('swiper-pagination-bullet-active');
+			}
+		  },
 		
 	
 	
@@ -34,11 +42,17 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
 		wrapperClass: 'main__swiper-wrapper-two',
 		slideClass: 'main__slide-t',
 		speed: 500,
+		autoplay: 1000,
 		effect: 'fade',
 		fadeEffect: {
 		  crossFade: true
 		},
-	
+		on: {
+			slideChange: function (mainSwiperTwo ) {
+				$('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-active');
+				$('.swiper-pagination-bullet:nth-child('+ (mainSwiperTwo .realIndex % 3 + 1) +')').addClass('swiper-pagination-bullet-active');
+			}
+		  },
 	
 	
 });
