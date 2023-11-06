@@ -63,5 +63,18 @@ $( document ).ready(function() {
 		  
         });
     });
+
+
+	$('.contacts__bottom-left-item').click(function () {
+		var id = $(this).attr('data-tab'),
+			content = $('.contacts__bottom-left-content[data-tab="' + id + '"]');
+	
+		$('.contacts__bottom-left-item.active').removeClass('active'); // 1
+		$(this).addClass('active'); // 2
+	
+		$('.contacts__bottom-left-content.active').removeClass('active'); // 3
+		content.addClass('active'); // 4
+	});
+	
 	
 });
