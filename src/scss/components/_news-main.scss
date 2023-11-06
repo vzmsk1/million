@@ -1,4 +1,5 @@
 .news-main {
+  margin-bottom: 18rem;
   border-top: 1px solid #c7c7c7;
   border-bottom: 1px solid #c7c7c7;
 }
@@ -6,36 +7,36 @@
 .news-main__wrapper {
   display: grid;
   grid-template-columns: 1fr 87rem 1fr;
+  grid-template-rows: min-content 1fr;
   width: 100%;
 }
 
 .news-main__left-column {
+  grid-row: 1/-1;
   padding: 17.3rem 0 6.5rem;
-}
-
-.news-main__center-column {
-  border-left: 1px solid #c7c7c7;
   border-right: 1px solid #c7c7c7;
 }
 
-.news-main__right-column {
-  position: relative;
+.news-main__center-top-column {
+  grid-column: 2/-1;
+  display: flex;
+  border-bottom: 1px solid #c7c7c7;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 37.759rem;
-    height: 1px;
-    background-color: #c7c7c7;
-  }
+.news-main__center-column {
+  grid-column: 2/3;
+  grid-row: 2/-1;
+}
+
+.news-main__right-column {
+  border-left: 1px solid #c7c7c7;
 }
 
 .news-main__title {
+  max-width: 87rem;
   padding: 10rem 10rem 10rem 4.7rem;
-  border-top: none;
   font-size: 7.4rem;
+  line-height: 127.027%;
   text-transform: uppercase;
   text-align: center;
 }
@@ -45,22 +46,24 @@
   flex-direction: column;
   gap: 3.2rem;
   padding: 10.3rem 7.7rem 10.3rem 17.6rem;
+  border-left: 1px solid #c7c7c7;
 }
 
 .news-main__item {
   font-size: 1.6rem;
+  line-height: 100%;
   text-transform: uppercase;
 }
 
 .news-main__info,
 .news-main__more-wrapper {
-  border-top: 1px solid #c7c7c7;
   font-size: 2.5rem;
 }
 
 .news-main__info {
   padding: 10rem 18.8rem 9rem;
   text-align: center;
+  border-bottom: 1px solid #c7c7c7;
 }
 
 .news-main__more-wrapper {
@@ -109,6 +112,10 @@
 }
 
 @media (max-width: 48em) {
+  .news-main {
+    margin-bottom: 6.4rem;
+  }
+
   .news-main__wrapper {
     display: block;
   }
@@ -118,16 +125,18 @@
     padding: 3.2rem 0;
     margin: 0 auto;
     font-size: 6.4rem;
+    line-height: 100%;
   }
 
-  .news-main__center-column {
+  .news-main__center-top-column {
     border: none;
   }
 
   .news-main__left-column,
   .news-main__right-column,
   .news-main__more-wrapper,
-  .news-main__info {
+  .news-main__info,
+  .news-main__list {
     display: none;
   }
 }
