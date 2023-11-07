@@ -75,6 +75,43 @@ $( document ).ready(function() {
 		$('.contacts__bottom-left-content.active').removeClass('active'); // 3
 		content.addClass('active'); // 4
 	});
+
+
+
+	$('.input-file').each(function() {
+        var $input = $(this),
+            $label = $input.closest('.js-labelFile'),
+            $btn = ('.has-btn'),
+            labelVal = $label.html();
+
+        $input.on('change', function(element) {
+            var fileName = '';
+            if (element.target.value) fileName = element.target.value.split('\\').pop();
+            fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
+            $('.has-btn').css('display', 'block');
+            $input.closest('.js-labelFile').addClass('has-file');
+
+        });
+
+
+
+    });
+
+	let btn = document.querySelectorAll(`.has-btn`);
+
+    btn.forEach(el => {
+        el.addEventListener(`click`, (evt) => {
+            evt.preventDefault();
+
+            const container = el.closest(`div`);
+            el.style.display = 'none';
+            container.querySelector(`.input-file`).value = '';
+            container.querySelector(`.js-labelFile`).classList.remove(`has-file`);
+            container.querySelector(`.js-fileName`).textContent = `прикрепить файл`;
+
+
+        });
+    })
 	
 	
 });
