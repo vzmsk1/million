@@ -1,6 +1,31 @@
+.latest-news {
+  margin-bottom: 18rem;
+}
+
 .latest-news__title {
   margin-bottom: 6rem;
   font-size: 7.4rem;
-  line-height: 127.027%;
+  line-height: 9.4rem;
   text-transform: uppercase;
+}
+
+.latest-news__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 48em) {
+  .latest-news {
+    margin-bottom: 9rem;
+  }
+
+  .latest-news__title {
+    font-size: 5.6rem;
+    text-transform: none;
+  }
+
+  .latest-news__list {
+    flex-direction: column;
+  }
 }
