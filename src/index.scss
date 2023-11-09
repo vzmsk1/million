@@ -1,9 +1,12 @@
 @import './scss/fonts';
 @import './scss/libs/set';
+@import './scss/libs/select';
+@import './scss/libs/datepicker';
 @import './scss/components/header';
 @import './scss/pages/home';
 @import './scss/style';
 @import './scss/libs/elements';
+@import './scss/libs/elements-a';
 @import './scss/components/main';
 @import './scss/components/info';
 @import './scss/components/partners';
@@ -20,5 +23,7 @@
 @import './scss/components/catalog';
 @import './scss/components/category';
 @import './scss/components/market-box';
-
+@import './scss/components/shops';
+@import './scss/components/hero-about-us';
+@import './scss/components/choose';
 @import './scss/components/footer';

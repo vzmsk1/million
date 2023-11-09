@@ -4,8 +4,10 @@
 
 .latest-news__title {
   margin-bottom: 6rem;
+  display: block;
   font-size: 7.4rem;
   line-height: 9.4rem;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -16,11 +18,8 @@
 }
 
 @media (max-width: 48em) {
-  .latest-news {
-    margin-bottom: 9rem;
-  }
-
   .latest-news__title {
+    margin-bottom: 4rem;
     font-size: 5.6rem;
     text-transform: none;
   }
