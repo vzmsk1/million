@@ -44,6 +44,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "bootstrap": "^5.3.2"
+    "air-datepicker": "^3.4.0"
   }
 }

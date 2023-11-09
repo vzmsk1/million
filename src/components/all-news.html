@@ -1,19 +1,108 @@
 <section class="all-news">
   <div class="container">
-    <div class="all-news__filter">
-      <div class="all-news__search">
-        <input class="all-news__search-input" type="text" name="" id="" placeholder="Поиск по названию">
+    <div class="all-news__row">
+      <form
+        data-search-box
+        action="#"
+        class="all-news__search-box search-box input">
+        <div class="search-box__field">
+          <input
+            autocomplete="off"
+            class="search-box__input txt"
+            type="search"
+            name="form[]"
+            placeholder="Поиск по названию" />
+        </div>
+        <button type="submit" class="search-box__btn">
+          <img
+            src="./assets/images/icon/search.svg"
+            alt=""
+            class="search-box__btn-icon" />
+        </button>
+        <div class="search-box__body">
+          <ul class="search-box__list">
+            <li class="search-box__item">
+              <span class="search-box__item-txt txt">KERAMA MARAZZI</span>
+            </li>
+            <li class="search-box__item">
+              <span class="search-box__item-txt txt">KARDINAL</span>
+            </li>
+            <li class="search-box__item">
+              <span class="search-box__item-txt txt">KULIK SYSTEM</span>
+            </li>
+          </ul>
+          <span class="search-box__text txt _hidden">Нет результатов</span>
+        </div>
+      </form>
+      <div
+        data-da=".filters-box__form-body,768,first"
+        class="all-news__input input input_date">
+        <input
+          id="dp"
+          readonly
+          autocomplete="off"
+          type="text"
+          name="form[]"
+          placeholder="Дата"
+          class="input__field" />
+      </div>
+      <div
+        data-da=".filters-box__form-body,768,first"
+        class="all-news__select-wrap">
+        <select
+          data-show-selection
+          data-sel-label="Сортировать"
+          data-sel-scroll="190"
+          name="form[]">
+          <option value="1" selected>Акции</option>
+          <option value="2">Новости</option>
+          <option value="3">Статьи</option>
+        </select>
+      </div>
+      <button
+        type="button"
+        class="all-news__filters-btn filters-btn _mobile-only">
+        <img
+          src="./assets/images/icon/filters.svg"
+          alt=""
+          class="filters-btn__icon" />
+      </button>
+      <div class="all-news__filters-box filters-box">
+        <div class="filters-box__body">
+          <button type="button" class="filters-box__close-btn">
+            <img
+              src="./assets/images/icon/close-black.svg"
+              alt=""
+              class="filters-box__close-btn-icon" />
+          </button>
+          <span class="filters-box__title tl1">фильтры</span>
+          <form data-dev action="#" class="filters-box__form">
+            <div class="filters-box__form-body"></div>
+            <div class="filters-box__actions">
+              <button
+                data-clean-form
+                type="button"
+                class="filters-box__btn btn btn--black">
+                Сбросить
+              </button>
+              <button type="submit" class="filters-box__btn btn btn--yellow">
+                Показать товары
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
-    <ul class="all-news__list">
-      <li class="all-news__item">
+    <div class="all-news__list">
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img3.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img3.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--action">Акция</span>
@@ -22,20 +111,22 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-
-      <li class="all-news__item">
+      </div>
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img1.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img1.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--news">Новость</span>
@@ -44,20 +135,22 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-
-      <li class="all-news__item">
+      </div>
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img2.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img2.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--article">Статья</span>
@@ -66,20 +159,22 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-
-      <li class="all-news__item">
+      </div>
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img1.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img1.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--news">Новость</span>
@@ -88,20 +183,22 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-
-      <li class="all-news__item">
+      </div>
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img2.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img2.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--article">Статья</span>
@@ -110,20 +207,22 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-
-      <li class="all-news__item">
+      </div>
+      <div class="latest-news__item">
         <div class="card-news">
-          <img
-            class="card-news__img"
-            src="./assets/images/latest-news/latest-news-img3.png"
-            alt=""
-          />
+          <a href="#" class="card-news__img-wrap">
+            <img
+              class="card-news__img"
+              src="./assets/images/latest-news/latest-news-img3.png"
+              alt="" />
+          </a>
           <div class="card-news__info">
             <div class="card-news__inner-wrapper">
               <span class="mark mark--action">Акция</span>
@@ -132,14 +231,16 @@
               >
             </div>
             <div class="card-news__description">
-              <p>Открылся Дом быта в ТЦ «Миллион мелочей»</p>
-              <a class="card-news__link" href=""></a>
+              <a href="#" class="card-news__heading"
+                >Открылся Дом быта в ТЦ «Миллион мелочей»</a
+              >
+              <a href="#" class="card-news__link"></a>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
 
-    <button class="all-news__button btn btn--black">показать все</button>
+    <a href="#" class="all-news__button btn btn--black">показать все</a>
   </div>
 </section>
