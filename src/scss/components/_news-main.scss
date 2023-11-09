@@ -38,6 +38,7 @@
   font-size: 7.4rem;
   line-height: 9.4rem;
   text-transform: uppercase;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -60,6 +61,12 @@
   font-size: 2.5rem;
 }
 
+.news-main__more-inner {
+  display: flex;
+  align-items: center;
+  gap: 6.85rem;
+}
+
 .news-main__info {
   padding: 10rem 18.8rem 9rem;
   text-align: center;
@@ -67,11 +74,8 @@
 }
 
 .news-main__more-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 6.85rem;
-  min-width: 36.35rem;
   padding: 10.2rem 25.35rem 10.2rem 25.3rem;
+  min-width: 36.35rem;
 }
 
 .news-main__more-info {

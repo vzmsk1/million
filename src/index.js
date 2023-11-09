@@ -1,6 +1,11 @@
-import "./index.scss";
-import "./js/pages/home";
-import "./js/components/header";
-import "./js/components/main-s";
-import { example } from "./js/utils/constants";
+import './index.scss';
+import './js/pages/home';
+import './js/components/header';
+import './js/components/main-s';
+import './js/libs/select';
+import './js/libs/dynamic_adapt';
+import './js/components/forms';
+import './js/components/main-a';
+import './js/utils/page_nav';
+import { example } from './js/utils/constants';
 console.log(example);

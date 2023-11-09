@@ -1,0 +1,48 @@
+.hero-about-us {
+  margin-bottom: 18rem;
+
+  // .hero-about-us__container
+
+  &__container {
+  }
+
+  // .hero-about-us__bg-wrap
+
+  &__bg-wrap {
+    margin-bottom: 18rem;
+    display: flex;
+    width: 100%;
+    height: 86rem;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  // .hero-about-us__bg
+
+  &__bg {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // .hero-about-us__privileges
+
+  &__privileges {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .hero-about-us {
+    &__bg-wrap {
+      margin-bottom: 4rem;
+      height: 35.4rem;
+      border-radius: 3rem;
+    }
+    &__privileges {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+}
