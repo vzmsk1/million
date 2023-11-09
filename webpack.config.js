@@ -16,7 +16,7 @@ const entryPoints = {
   news: path.resolve(__dirname, 'src', 'index.js'),
   contacts: path.resolve(__dirname, 'src', 'index.js'),
   landlords: path.resolve(__dirname, 'src', 'index.js'),
-  
+  catalog: path.resolve(__dirname, 'src', 'index.js'),
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы

@@ -59,6 +59,23 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
 
 
 
+const catalogSwiper = new Swiper('.catalog__swiper', {
+	modules: [Navigation, Pagination, EffectFade],
+	spaceBetween: rem(1),
+	slidesPerView: 'auto',
+	wrapperClass: 'catalog__swiper-wrapper',
+	slideClass: 'catalog__slide',
+	navigation: {
+		
+		nextEl: '.catalog__swiper-arrow',
+	},
+
+
+});
+
+
+
+
 ymaps.ready(function () {
 	var myMap = new ymaps.Map('map', {
 			center: [55.720702, 37.630104],
