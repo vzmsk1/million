@@ -1,7 +1,12 @@
-// window.$ = window.jQuery = require('jquery');
-
+// air datepicker
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
+// swiper
+import Swiper from 'swiper';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+// utils
+import { rem } from '../components/main-s';
 
 // --------------------------------------------------------------------------
 
@@ -56,6 +61,57 @@ document.addEventListener('DOMContentLoaded', function () {
     //     }
     // },
   });
+
+  // sliders
+  if (document.querySelector('.choose__ticker_l2r')) {
+    new Swiper('.choose__ticker_l2r', {
+      modules: [Autoplay],
+      slidesPerView: 'auto',
+      spaceBetween: rem(5),
+      loop: true,
+      allowTouchMove: false,
+      speed: 5500,
+      freeMode: true,
+
+      // autoplay
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+
+      // breakpoints
+      breakpoints: {
+        768: {
+          spaceBetween: rem(6),
+        },
+      },
+    });
+  }
+  if (document.querySelector('.choose__ticker_r2l')) {
+    new Swiper('.choose__ticker_r2l', {
+      modules: [Autoplay],
+      slidesPerView: 'auto',
+      spaceBetween: rem(5),
+      loop: true,
+      allowTouchMove: false,
+      speed: 5500,
+      freeMode: true,
+
+      // autoplay
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: true,
+      },
+
+      // breakpoints
+      breakpoints: {
+        768: {
+          spaceBetween: rem(6),
+        },
+      },
+    });
+  }
 
   // document events
   document.addEventListener('click', function (e) {

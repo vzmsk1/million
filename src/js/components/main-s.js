@@ -5,7 +5,7 @@ import 'swiper/css/effect-fade';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 // init Swiper:
 
-const rem = function (rem) {
+export const rem = function (rem) {
   if ($(window).width() > 768) {
     return 0.005208335 * $(window).width() * rem;
   } else {
