@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   }
-  if (document.querySelector('.stock__slider')) {
-    new Swiper('.stock__slider', {
+  if (document.querySelector('.chapter-page__slider')) {
+    new Swiper('.chapter-page__slider', {
       modules: [Pagination],
       slidesPerView: 1,
       spaceBetween: rem(3),
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // pagination
       pagination: {
-        el: '.stock__slider-pagination .pagination__bullets',
+        el: '.chapter-page__slider-pagination .pagination__bullets',
         clickable: true,
       },
     });

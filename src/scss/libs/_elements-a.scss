@@ -367,6 +367,29 @@
   }
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
+
+  // .list__item
+
+  &__item {
+    display: flex;
+    column-gap: 0.8rem;
+    color: #808080;
+    &::before {
+      content: '';
+      flex: 0 0 0.8rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 0.2rem;
+      background-color: #3c6a75;
+      transform: translateY(0.9rem);
+    }
+  }
+}
+
 ._lock {
   overflow: hidden;
   touch-action: none;
@@ -377,6 +400,19 @@
 }
 
 @media (max-width: 48em) {
+  .list {
+    row-gap: 0.3rem;
+    &__item {
+      column-gap: 1.6rem;
+      &::before {
+        flex: 0 0 1.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 0.4rem;
+        transform: translateY(1.15rem);
+      }
+    }
+  }
   .link {
     &__icon {
       width: 26.8rem;

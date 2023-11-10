@@ -156,6 +156,14 @@ let formValidate = {
           checkbox.checked = false;
         }
       }
+      const selectItems = document.querySelectorAll('select');
+      if (selectItems.length) {
+        selectItems.forEach(selectItem => {
+          if (selectItem.parentElement.classList.contains('_select-filled')) {
+            selectItem.parentElement.classList.remove('_select-filled');
+          }
+        });
+      }
       const selectOptions = form.querySelectorAll('.select__option');
       if (selectOptions.length) {
         selectOptions.forEach(selectOption => {
