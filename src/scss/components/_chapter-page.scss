@@ -390,6 +390,9 @@
     &__play-btn {
       display: none;
     }
+    &__video-poster {
+      display: none;
+    }
     .articles-chapter-page & {
       &__wrapper {
         flex-direction: column;
