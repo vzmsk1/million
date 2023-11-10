@@ -543,6 +543,32 @@
   }
 }
 
+.play-btn {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  border: 0.5px solid #ffffff;
+  border-radius: 50%;
+  background-color: rgba(249, 249, 249, 0.3);
+  backdrop-filter: blur(0.3rem);
+  transform: translate(-50%, -50%);
+  &::before {
+    content: '';
+    width: 2.1rem;
+    height: 2.1rem;
+    background-image: url(./assets/images/icon/play-btn.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
 ._lock {
   overflow: hidden;
   touch-action: none;
@@ -553,6 +579,14 @@
 }
 
 @media (max-width: 48em) {
+  .play-btn {
+    width: 14rem;
+    height: 14rem;
+    &::before {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
   .shop-card {
     padding: 2.4rem 2.4rem 6rem 2.4rem;
     border-radius: 3rem;

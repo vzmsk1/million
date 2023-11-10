@@ -1,7 +1,9 @@
 <section class="chapter-page">
   <div class="chapter-page__container container">
     <div data-da=".chapter-page__content,768,2" class="chapter-page__aside">
-      <div class="chapter-page__video-wrap">
+      <div
+        data-da=".chapter-page__video-modal-inner,768,last"
+        class="chapter-page__video-wrap">
         <video
           id="video-js"
           class="chapter-page__video video-js vjs-styles-dimensions">
@@ -9,9 +11,25 @@
             src="https://yourimageshare.com/ib/sXSG6cbEiF.mp4"
             type="video/mp4" />
         </video>
+      </div>
+      <div class="chapter-page__video-poster mobile-only">
+        <div class="chapter-page__video-poster-img">
+          <img src="./assets/images/chapter-page/video-poster.webp" alt="" />
+        </div>
         <button
+          id="play-btn"
           type="button"
-          class="chapter-page__play-btn play-btn mobile-only"></button>
+          class="chapter-page__play-btn play-btn"></button>
+      </div>
+      <div class="chapter-page__video-modal">
+        <div class="chapter-page__video-modal-inner">
+          <button
+            id="video-modal-close"
+            type="button"
+            class="chapter-page__video-modal-close">
+            <img src="./assets/images/icon/close-black.svg" alt="" />
+          </button>
+        </div>
       </div>
 
       <div class="chapter-page__aside-group">

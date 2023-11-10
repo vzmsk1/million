@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // video player
   if (document.getElementById('video-js')) {
-    const vp = videojs('video-js', {
+    videojs('video-js', {
       controls: true,
       autoplay: false,
       preload: 'auto',
@@ -172,6 +172,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const onClickHandler = e => {
     const target = e.target;
 
+    if (target.closest('#play-btn')) {
+      document.documentElement.classList.add('_video-modal-opened');
+      document.body.classList.add('_lock');
+      videojs('video-js').play();
+    }
+    if (target.closest('#video-modal-close')) {
+      document.documentElement.classList.remove('_video-modal-opened');
+      document.body.classList.remove('_lock');
+      videojs('video-js').pause();
+    }
     if (target.closest('[data-clean-form]')) {
       const form = target.closest('form');
 
