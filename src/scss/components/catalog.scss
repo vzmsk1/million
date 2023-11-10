@@ -1,5 +1,6 @@
 .catalog {
-    margin-top: 2.9rem;
+    padding-top: 2.9rem;
+    margin-bottom: 18rem;
     &__title {
         font-size: 7.4rem;
         line-height: 9.4rem;
@@ -60,6 +61,97 @@
             }
 
         }
+    }
+
+    &__tegs {
+        min-width: 9.7rem;
+    }
+
+    &__inner-btn {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        margin-top: 6rem;
+
+    }
+
+    &__all-btn {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-radius: 2rem;
+        border: 1px solid  #1C1C1C;
+        width: 19.2rem;
+        height: 6.5rem;
+        font-size: 1.8rem;
+
+
+
+    }
+
+    &__wrap-filters {
+        display: flex;
+        align-items:center;
+        margin-bottom: 6rem;
+        .search-box {
+            width: 56rem;
+            margin-right: 2rem;
+        }
+
+
+    }
+
+    &__wrapper {
+       display: none;
+        flex-wrap: wrap;
+    }
+
+    &__wrapper.active {
+        display: flex;
+    }
+
+    &__select-one {
+        margin-right: 2rem;
+        width: 56rem;
+    }
+
+    &__select-two {
+        width: 27rem;
+            min-width: 27rem;
+            max-width: 27rem;
+
+            .select {
+                min-width: 27rem;
+            }
+    }
+
+    &__wrap-filters-btns {
+        display: flex;
+        margin-left: auto;
+    }
+
+    &__wrap-filters-btn {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 2.4rem;
+        svg {
+            rect {
+                fill: #C7C7C7;
+            }
+        }
+    }
+
+    &__wrap-filters-btn.active {
+        svg {
+            rect {
+                fill: #F1CF57;
+            }
+        }
+    }
+
+    &__wrap-filters-btn:last-child {
+        margin-right: 0;
     }
     
 

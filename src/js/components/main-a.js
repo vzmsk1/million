@@ -2,9 +2,7 @@
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // swiper
-import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+
 // utils
 import { rem } from '../components/main-s';
 

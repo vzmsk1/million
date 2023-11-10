@@ -64,6 +64,21 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
   },
 });
 
+const catalogSwiper = new Swiper('.catalog__swiper', {
+	modules: [Navigation, Pagination, EffectFade],
+	spaceBetween: rem(1),
+	slidesPerView: 'auto',
+	wrapperClass: 'catalog__swiper-wrapper',
+	slideClass: 'catalog__slide',
+	navigation: {
+
+		nextEl: '.catalog__swiper-arrow',
+	},
+
+
+});
+
+
 if (document.getElementById('map')) {
   ymaps.ready(function () {
     var myMap = new ymaps.Map(
@@ -124,7 +139,7 @@ if (document.getElementById('map')) {
         }
       );
 
-<<<<<<< HEAD
+
 
 const catalogSwiper = new Swiper('.catalog__swiper', {
 	modules: [Navigation, Pagination, EffectFade],
@@ -197,8 +212,8 @@ ymaps.ready(function () {
 		.add(myPlacemark)
 		.add(myPlacemarkWithContent);
   });
-=======
+
     myMap.geoObjects.add(myPlacemark).add(myPlacemarkWithContent);
   });
 }
->>>>>>> cefa130749bbdffe70896af30fcd9def16e8cb61
+
