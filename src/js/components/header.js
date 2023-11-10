@@ -76,7 +76,16 @@ $( document ).ready(function() {
 		content.addClass('active'); // 4
 	});
 
-
+    $('.catalog__wrap-filters-btn').click(function () {
+		var id = $(this).attr('data-tab'),
+			content = $('.catalog__wrapper[data-tab="' + id + '"]');
+	
+		$('.catalog__wrap-filters-btn.active').removeClass('active'); // 1
+		$(this).addClass('active'); // 2
+	
+		$('.catalog__wrapper.active').removeClass('active'); // 3
+		content.addClass('active'); // 4
+	});
 
 	$('.input-file').each(function() {
         var $input = $(this),

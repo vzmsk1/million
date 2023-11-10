@@ -16,7 +16,12 @@ const entryPoints = {
   news: path.resolve(__dirname, 'src', 'index.js'),
   contacts: path.resolve(__dirname, 'src', 'index.js'),
   landlords: path.resolve(__dirname, 'src', 'index.js'),
+  catalog: path.resolve(__dirname, 'src', 'index.js'),
+  markets: path.resolve(__dirname, 'src', 'index.js'),
+  catalogtwo: path.resolve(__dirname, 'src', 'index.js'),
+  alllistst: path.resolve(__dirname, 'src', 'index.js'),
   'about-us': path.resolve(__dirname, 'src', 'index.js'),
+
   'stock-chapter': path.resolve(__dirname, 'src', 'index.js'),
   'stock-chapter-vid': path.resolve(__dirname, 'src', 'index.js'),
   'news-chapter': path.resolve(__dirname, 'src', 'index.js'),
