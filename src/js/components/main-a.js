@@ -2,7 +2,9 @@
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // swiper
-
+import Swiper from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
 // utils
 import { rem } from '../components/main-s';
 
@@ -61,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // sliders
+  let chapterPageSlider = null;
+
   if (document.querySelector('.choose__ticker_l2r')) {
     new Swiper('.choose__ticker_l2r', {
       modules: [Autoplay],
@@ -110,11 +114,76 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   }
+  if (document.querySelector('.shop-card__slider')) {
+    new Swiper('.shop-card__slider', {
+      modules: [Pagination],
+      slidesPerView: 1,
+      spaceBetween: rem(3),
+      speed: 800,
 
-  // document events
-  document.addEventListener('click', function (e) {
+      // pagination
+      pagination: {
+        el: '.shop-card__slider-pagination .pagination__bullets',
+        clickable: true,
+      },
+    });
+  }
+  const slidersInit = () => {
+    if (
+      (document.querySelector('.chapter-page__slider') &&
+        !document.querySelector('.articles-chapter-page')) ||
+      (document.querySelector('.articles-chapter-page') &&
+        window.innerWidth <= 768 &&
+        !chapterPageSlider)
+    ) {
+      chapterPageSlider = new Swiper('.chapter-page__slider', {
+        modules: [Pagination],
+        slidesPerView: 1,
+        spaceBetween: rem(3),
+        speed: 700,
+
+        // pagination
+        pagination: {
+          el: '.chapter-page__slider-pagination .pagination__bullets',
+          clickable: true,
+        },
+      });
+    } else if (
+      document.querySelector('.articles-chapter-page') &&
+      window.innerWidth > 768 &&
+      chapterPageSlider
+    ) {
+      chapterPageSlider.destroy();
+      chapterPageSlider = null;
+    }
+  };
+  slidersInit();
+
+  // video player
+  if (document.getElementById('video-js')) {
+    videojs('video-js', {
+      controls: true,
+      autoplay: false,
+      preload: 'auto',
+    });
+  }
+
+  // --------------------------------------------------------------------------
+
+  // handler functions
+  const onClickHandler = e => {
     const target = e.target;
 
+    if (target.closest('#play-btn')) {
+      document.documentElement.classList.add('_video-modal-opened');
+      document.body.classList.add('_lock');
+      videojs('video-js').play();
+    }
+    if (target.closest('#video-modal-close')) {
+      document.documentElement.classList.remove('_video-modal-opened');
+      document.body.classList.remove('_lock');
+      videojs('video-js').pause();
+    }
     if (target.closest('[data-clean-form]')) {
       const form = target.closest('form');
 
@@ -139,5 +208,15 @@ document.addEventListener('DOMContentLoaded', function () {
         target.closest('.filters-box .select__option').classList.add('_active');
       }
     }
-  });
+  };
+  const onResizeHandler = () => {
+    slidersInit();
+  };
+
+  // --------------------------------------------------------------------------
+
+  // document events
+  document.addEventListener('click', onClickHandler);
+  // window events
+  window.addEventListener('resize', onResizeHandler);
 });
