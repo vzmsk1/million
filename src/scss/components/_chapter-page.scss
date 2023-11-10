@@ -86,6 +86,9 @@
   // .chapter-page__slide-img-wrap
 
   &__slide-img-wrap {
+    height: 69.4rem;
+    border-radius: 2rem;
+    overflow: hidden;
   }
 
   // .chapter-page__slide-img
@@ -192,6 +195,9 @@
 
   &__text {
     color: #808080;
+    .shop-chapter-page & {
+      color: #1c1c1c;
+    }
   }
 
   // .chapter-page__text-content
@@ -209,12 +215,67 @@
     flex-direction: column;
     row-gap: 3.2rem;
   }
+
+  // .chapter-page__title-wrap
+
+  &__title-wrap {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    column-gap: 3.6rem;
+    .chapter-page__title {
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  // .chapter-page__title-icon-wrap
+
+  &__title-icon-wrap {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 9.3rem;
+    width: 9.3rem;
+    height: 9.3rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  // .chapter-page__title-icon
+
+  &__title-icon {
+    flex: 0 0 6rem;
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 48em) {
   .chapter-page {
-    .chapter-page-chapter-page & {
-      margin-top: 10rem;
+    margin-top: 10rem;
+    .shop-chapter-page & {
+      &__text-wrap {
+        row-gap: normal;
+      }
+    }
+    &__shop-card {
+      margin-bottom: 8rem;
+    }
+    &__title-wrap {
+      margin-bottom: 6.3rem;
+      column-gap: 2.4rem;
+    }
+    &__title-icon-wrap {
+      flex: 0 0 11rem;
+      width: 11rem;
+      height: 11rem;
+    }
+    &__title-icon {
+      flex: 0 0 6.3rem;
+      width: 6.3rem;
+      height: 6.3rem;
     }
     &__container {
       grid-template-columns: 1fr;
@@ -255,7 +316,7 @@
     }
     &__video-wrap,
     &__image-wrap,
-    &__carousel {
+    &__slide-img-wrap {
       margin-bottom: 6.3rem;
       height: 70.8rem;
       border-radius: 3rem;

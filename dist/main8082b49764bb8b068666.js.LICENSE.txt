@@ -185,7 +185,11 @@
 
 /*! ./assets/images/icon/galka.svg */
 
+/*! ./assets/images/icon/geo-dark.svg */
+
 /*! ./assets/images/icon/geo-pin.svg */
+
+/*! ./assets/images/icon/map-dark.svg */
 
 /*! ./assets/images/icon/mob-arrow-black.svg */
 
@@ -201,7 +205,11 @@
 
 /*! ./assets/images/icon/sel-arr.svg */
 
+/*! ./assets/images/icon/site.svg */
+
 /*! ./assets/images/icon/small-w-arrow.svg */
+
+/*! ./assets/images/icon/tel-dark.svg */
 
 /*! ./assets/images/info/box-tringle.svg */
 
@@ -363,6 +371,10 @@
   !*** ./src/assets/fonts/Mont-Thin.woff ***!
   \*****************************************/
 
+/*!*****************************************!*\
+  !*** ./src/assets/images/icon/site.svg ***!
+  \*****************************************/
+
 /*!******************************************!*\
   !*** ./src/assets/fonts/Mont-Black.woff ***!
   \******************************************/
@@ -456,7 +468,19 @@
   \*********************************************/
 
 /*!*********************************************!*\
+  !*** ./src/assets/images/icon/geo-dark.svg ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/assets/images/icon/map-dark.svg ***!
+  \*********************************************/
+
+/*!*********************************************!*\
   !*** ./src/assets/images/icon/play-btn.svg ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/assets/images/icon/tel-dark.svg ***!
   \*********************************************/
 
 /*!**********************************************!*\

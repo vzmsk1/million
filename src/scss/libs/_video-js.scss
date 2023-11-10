@@ -13,7 +13,8 @@
 .vjs-icon-circle:before,
 .vjs-seek-to-live-control .vjs-icon-placeholder:before,
 .video-js .vjs-volume-level:before,
-.video-js .vjs-play-progress:before {
+.video-js .vjs-play-progress:before,
+.video-js .vjs-remaining-time {
   display: none;
 }
 .video-js .vjs-control-bar,
@@ -51,37 +52,35 @@
   height: 3px;
   transform: translateY(1rem);
 }
-.vjs-remaining-time-display {
+.vjs-remaining-time-display,
+.video-js .vjs-time-control {
   @extend .txt;
   color: #ffffff;
 }
 .video-js .vjs-time-control {
-  @extend .txt;
   display: block;
   height: auto;
-  color: #ffffff;
 }
 .video-js .vjs-remaining-time {
   display: none;
 }
-.vjs-play-control.vjs-control.vjs-button {
-  position: static;
-  margin-right: 2.5rem;
+.vjs-play-control.vjs-control.vjs-button,
+.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal,
+.vjs-control-bar .vjs-big-play-button .vjs-icon-placeholder {
   width: 2.4rem;
   height: 2.4rem;
+}
+.vjs-play-control.vjs-control.vjs-button {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-right: 2.5rem;
+  transform: translateY(-0.2rem);
 }
 .vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal {
   position: static;
   margin-left: auto;
-  width: 2.4rem;
-  height: 2.4rem;
   order: 1;
-}
-.vjs-control-bar .vjs-big-play-button .vjs-icon-placeholder {
-  &::before {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
 }
 .vjs-duration.vjs-time-control.vjs-control,
 .vjs-current-time.vjs-time-control.vjs-control {
@@ -92,6 +91,10 @@
   padding: 0 0.5rem;
   margin: 0;
   min-width: auto;
+}
+.video-js:hover .vjs-big-play-button,
+.video-js .vjs-big-play-button:focus {
+  background-color: rgba(249, 249, 249, 0.3);
 }
 .video-js .vjs-big-play-button {
   position: relative;
@@ -156,21 +159,13 @@
 .vjs-modal-dialog .vjs-modal-dialog-content,
 .video-js .vjs-modal-dialog,
 .vjs-button > .vjs-icon-placeholder:before,
-.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before,
+.vjs-control-bar .vjs-icon-placeholder {
   width: 100%;
   height: 100%;
-}
-.vjs-play-control.vjs-control.vjs-button {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 2.4rem;
-  height: 2.4rem;
 }
 .vjs-control-bar .vjs-icon-placeholder {
   display: flex;
-  width: 100%;
-  height: 100%;
   &::before {
     font-size: 2.4rem;
   }
@@ -192,7 +187,7 @@
     width: 4rem;
     height: 4rem;
   }
-  .vjs-control-bar .vjs-icon-placeholder {
+  .vjs-button > .vjs-icon-placeholder {
     &::before {
       font-size: 4rem;
     }
