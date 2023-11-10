@@ -155,6 +155,28 @@
     }
     
 
+    &__categories {
+        display: flex;
+        margin-bottom: 3.7rem;
+        &-link {
+            display: inline-block;
+            border-radius: 2rem;
+            background: #FFF;
+            font-size: 1.8rem;
+            padding: 2.4rem 3.2rem;
+            margin-right: 2rem;
+        }
+
+        &-link.active {
+            background: #ED1E79;
+            color: #fff;
+        }
+
+        &-link:last-child {
+            margin-right: 0;
+        }
+    }
+
 
     
 }

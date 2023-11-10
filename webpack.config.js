@@ -18,6 +18,8 @@ const entryPoints = {
   landlords: path.resolve(__dirname, 'src', 'index.js'),
   catalog: path.resolve(__dirname, 'src', 'index.js'),
   markets: path.resolve(__dirname, 'src', 'index.js'),
+  catalogtwo: path.resolve(__dirname, 'src', 'index.js'),
+  alllistst: path.resolve(__dirname, 'src', 'index.js'),
   'about-us': path.resolve(__dirname, 'src', 'index.js'),
 
 };

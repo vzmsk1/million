@@ -1,0 +1,20 @@
+.all-lists-t {
+
+
+    &__wrapper {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+
+        a {
+           display: block;
+            border-radius: 2rem;
+            background: #FFF;
+            font-size: 1.8rem;
+            padding: 2.4rem 3.2rem;
+           margin-bottom: 2rem;
+        }
+    }
+}
