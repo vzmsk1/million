@@ -63,69 +63,87 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // sliders
-  if (document.querySelector('.choose__ticker_l2r')) {
-    new Swiper('.choose__ticker_l2r', {
-      modules: [Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: rem(5),
-      loop: true,
-      allowTouchMove: false,
-      speed: 5500,
-      freeMode: true,
+  let chapterPageSlider = null;
 
-      // autoplay
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
+  const slidersInit = () => {
+    if (document.querySelector('.choose__ticker_l2r')) {
+      new Swiper('.choose__ticker_l2r', {
+        modules: [Autoplay],
+        slidesPerView: 'auto',
+        spaceBetween: rem(5),
+        loop: true,
+        allowTouchMove: false,
+        speed: 5500,
+        freeMode: true,
 
-      // breakpoints
-      breakpoints: {
-        768: {
-          spaceBetween: rem(6),
+        // autoplay
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
         },
-      },
-    });
-  }
-  if (document.querySelector('.choose__ticker_r2l')) {
-    new Swiper('.choose__ticker_r2l', {
-      modules: [Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: rem(5),
-      loop: true,
-      allowTouchMove: false,
-      speed: 5500,
-      freeMode: true,
 
-      // autoplay
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        reverseDirection: true,
-      },
-
-      // breakpoints
-      breakpoints: {
-        768: {
-          spaceBetween: rem(6),
+        // breakpoints
+        breakpoints: {
+          768: {
+            spaceBetween: rem(6),
+          },
         },
-      },
-    });
-  }
-  if (document.querySelector('.chapter-page__slider')) {
-    new Swiper('.chapter-page__slider', {
-      modules: [Pagination],
-      slidesPerView: 1,
-      spaceBetween: rem(3),
-      speed: 700,
+      });
+    }
+    if (document.querySelector('.choose__ticker_r2l')) {
+      new Swiper('.choose__ticker_r2l', {
+        modules: [Autoplay],
+        slidesPerView: 'auto',
+        spaceBetween: rem(5),
+        loop: true,
+        allowTouchMove: false,
+        speed: 5500,
+        freeMode: true,
 
-      // pagination
-      pagination: {
-        el: '.chapter-page__slider-pagination .pagination__bullets',
-        clickable: true,
-      },
-    });
-  }
+        // autoplay
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          reverseDirection: true,
+        },
+
+        // breakpoints
+        breakpoints: {
+          768: {
+            spaceBetween: rem(6),
+          },
+        },
+      });
+    }
+    if (
+      (document.querySelector('.chapter-page__slider') &&
+        !document.querySelector('.articles-chapter-page')) ||
+      (document.querySelector('.articles-chapter-page') &&
+        window.innerWidth <= 768 &&
+        !chapterPageSlider)
+    ) {
+      chapterPageSlider = new Swiper('.chapter-page__slider', {
+        modules: [Pagination],
+        slidesPerView: 1,
+        spaceBetween: rem(3),
+        speed: 700,
+
+        // pagination
+        pagination: {
+          el: '.chapter-page__slider-pagination .pagination__bullets',
+          clickable: true,
+        },
+      });
+    } else if (
+      document.querySelector('.articles-chapter-page') &&
+      window.innerWidth > 768 &&
+      chapterPageSlider
+    ) {
+      chapterPageSlider.destroy();
+      chapterPageSlider = null;
+    }
+  };
+  slidersInit();
 
   // video player
   if (document.getElementById('video-js')) {
@@ -136,8 +154,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // document events
-  document.addEventListener('click', function (e) {
+  // --------------------------------------------------------------------------
+
+  // handler functions
+  const onClickHandler = e => {
     const target = e.target;
 
     if (target.closest('[data-clean-form]')) {
@@ -164,5 +184,15 @@ document.addEventListener('DOMContentLoaded', function () {
         target.closest('.filters-box .select__option').classList.add('_active');
       }
     }
-  });
+  };
+  const onResizeHandler = () => {
+    slidersInit();
+  };
+
+  // --------------------------------------------------------------------------
+
+  // document events
+  document.addEventListener('click', onClickHandler);
+  // window events
+  window.addEventListener('resize', onResizeHandler);
 });

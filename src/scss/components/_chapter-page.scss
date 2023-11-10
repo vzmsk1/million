@@ -49,20 +49,28 @@
     overflow: hidden;
   }
 
+  // .chapter-page__image
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
+  }
+
   // .chapter-page__carousel
 
   &__carousel {
     position: relative;
     margin-bottom: 6rem;
-    height: 69.5rem;
-    border-radius: 2rem;
-    overflow: hidden;
   }
 
   // .chapter-page__slider
 
   &__slider {
-    height: 100%;
+    &.swiper {
+      margin: 0;
+      height: 100%;
+      min-width: 0;
+    }
   }
 
   // .chapter-page__wrapper
@@ -78,7 +86,6 @@
   // .chapter-page__slide-img-wrap
 
   &__slide-img-wrap {
-    height: 100%;
   }
 
   // .chapter-page__slide-img
@@ -152,6 +159,9 @@
   &__title {
     margin-bottom: 4.6rem;
     max-width: 80rem;
+    .articles-chapter-page & {
+      max-width: 94.5rem;
+    }
   }
 
   // .chapter-page__labels
@@ -182,6 +192,22 @@
 
   &__text {
     color: #808080;
+  }
+
+  // .chapter-page__text-content
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.6rem;
+  }
+
+  // .chapter-page__text-item
+
+  &__text-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.2rem;
   }
 }
 
@@ -233,6 +259,36 @@
       margin-bottom: 6.3rem;
       height: 70.8rem;
       border-radius: 3rem;
+    }
+  }
+}
+@media (min-width: 48em) {
+  .chapter-page {
+    &__list {
+      &.mobile-only {
+        display: none;
+      }
+    }
+    &__text-content {
+      row-gap: 6.3rem;
+    }
+    .articles-chapter-page & {
+      &__wrapper {
+        flex-direction: column;
+        height: auto;
+        row-gap: 2.4rem;
+      }
+      &__carousel {
+        margin-bottom: 0;
+      }
+      &__slide-img-wrap {
+        height: 69.4rem;
+        border-radius: 2rem;
+        overflow: hidden;
+      }
+      &__slider-pagination {
+        display: none;
+      }
     }
   }
 }
