@@ -3,7 +3,7 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 // swiper
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 // utils
 import { rem } from '../components/main-s';
@@ -110,6 +110,29 @@ document.addEventListener('DOMContentLoaded', function () {
           spaceBetween: rem(6),
         },
       },
+    });
+  }
+  if (document.querySelector('.stock__slider')) {
+    new Swiper('.stock__slider', {
+      modules: [Pagination],
+      slidesPerView: 1,
+      spaceBetween: rem(3),
+      speed: 700,
+
+      // pagination
+      pagination: {
+        el: '.stock__slider-pagination .pagination__bullets',
+        clickable: true,
+      },
+    });
+  }
+
+  // video player
+  if (document.getElementById('video-js')) {
+    videojs('video-js', {
+      controls: true,
+      autoplay: false,
+      preload: 'auto',
     });
   }
 

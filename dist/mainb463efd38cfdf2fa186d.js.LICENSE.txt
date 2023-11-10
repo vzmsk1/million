@@ -193,6 +193,8 @@
 
 /*! ./assets/images/icon/phone-pin.svg */
 
+/*! ./assets/images/icon/play-btn.svg */
+
 /*! ./assets/images/icon/search-status.svg */
 
 /*! ./assets/images/icon/search.svg */
@@ -451,6 +453,10 @@
 
 /*!*********************************************!*\
   !*** ./src/assets/images/icon/document.svg ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/assets/images/icon/play-btn.svg ***!
   \*********************************************/
 
 /*!**********************************************!*\

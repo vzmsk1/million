@@ -314,10 +314,12 @@
 }
 
 .tl1,
+.tl2,
 .tl3,
 .tl4 {
   font-family: Mont;
   font-weight: 400;
+  color: #1c1c1c;
 }
 
 .tl1 {
@@ -327,14 +329,16 @@
   color: #000000;
 }
 
+.tl2 {
+  font-size: 4rem;
+}
+
 .tl3 {
   font-size: 2.8rem;
-  color: #1c1c1c;
 }
 
 .tl4 {
   font-size: 2.5rem;
-  color: #1c1c1c;
 }
 
 .subtitle {
@@ -342,6 +346,25 @@
   font-size: 1.6rem;
   text-transform: uppercase;
   color: #ed1e79;
+}
+
+.link {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+
+  // .link__text
+
+  &__text {
+    font-weight: 800;
+    line-height: 138.889%;
+  }
+
+  // .link__icon
+
+  &__icon {
+    width: 13.4rem;
+  }
 }
 
 ._lock {
@@ -354,6 +377,11 @@
 }
 
 @media (max-width: 48em) {
+  .link {
+    &__icon {
+      width: 26.8rem;
+    }
+  }
   .privilege-card {
     padding: 3.2rem;
     &__icon-wrap {
@@ -374,6 +402,9 @@
   .subtitle {
     font-size: 2rem;
     font-weight: 600;
+  }
+  .tl2 {
+    font-size: 6rem;
   }
   .tl3,
   .tl4 {
