@@ -28,6 +28,10 @@ body {
   background-color: #E6E6E6;
 }
 
+body.active {
+  overflow: hidden;
+}
+
 input,
 textarea {
   -webkit-animation: bugfix infinite 1s;

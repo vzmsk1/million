@@ -80,6 +80,24 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 
 
+const swiperPartners = new Swiper('.partners__swiper', {
+  modules: [Navigation, Pagination, EffectFade],
+	speed: 2000, 
+  spaceBetween: rem(16.5), 
+	loop: true, 
+	allowTouchMove: false, 
+	autoplay: { 
+ 		delay: 0,
+		disableOnInteraction: false, // 
+	},
+	breakpoints: { 
+		769: {
+			slidesPerView: 5,
+		},
+	
+	},
+});
+
 
 
 if (document.getElementById('map')) {

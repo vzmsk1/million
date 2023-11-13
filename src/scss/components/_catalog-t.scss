@@ -199,6 +199,12 @@
        .btn {
         border: 1px solid  #1C1C1C;
         color:#1C1C1C;
+        transition: 0.2s ease-in-out;
+        &:hover {
+          transition: 0.2s ease-in-out;
+          border: 1.3px solid #ED1E79;
+          color: #ED1E79;
+        }
        }
     }
 
@@ -244,6 +250,12 @@
             z-index: 2;
             top: 11.4rem;
             right: 6.9rem;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              transition: 0.2s ease-in-out;
+              background:  #ED1E79;
+             
+            }
             svg {
                 width: 2rem;
                 height: 1.6rem;
@@ -264,6 +276,12 @@
             align-items:center;
             bottom: 11.4rem;
             left: 5.3rem;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              transition: 0.2s ease-in-out;
+              background:  #ED1E79;
+              color: #fff;
+            }
 
         }
     }

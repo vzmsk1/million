@@ -281,3 +281,114 @@
 .market-box-b:nth-child(3n) {
     margin-right: 0;
 }
+
+
+
+@media (max-width: 48em) {
+
+    .market-box-b {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+        border-radius: 4rem;
+
+        &__block {
+            flex-direction: column;
+            margin-bottom: 4rem;
+        }
+
+        &__inner {
+            display: flex;
+            margin-bottom: 4rem;
+        }
+
+        &__icon {
+            margin-bottom: 0;
+            margin-right: 2.4rem;
+            img {
+                height: auto;
+            }
+        }
+
+        &__title {
+            strong {
+                font-size: 3.2rem;
+                margin-bottom: 2.4rem;
+            }
+
+            span {
+                font-size: 2.4rem;
+            }
+        }
+
+        &__link {
+            font-size: 2.4rem;
+            padding-bottom: 4.2rem;
+            height: 140%;
+            &::before {
+                width: 26.8rem;
+                height: 2.8rem;
+            }
+        }
+
+        &__tags {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            white-space: nowrap;
+            margin-bottom: 4rem;
+        }
+
+        &__tags {
+            &::-webkit-scrollbar {
+                display: none;
+              }
+        }
+
+        &__tag{
+            border-radius: 1.6rem;
+            padding: 1.6rem 2.4rem;
+            margin-right: 2rem;
+            font-size: 2rem;
+            height: 5rem;
+        }
+
+        &__status {
+            border-radius: 1.6rem;
+            height: 5rem;
+            font-size: 2rem;
+        }
+
+        &__float {
+            font-size: 2.4rem;
+            line-height: 140%;
+            padding-left: 7.8rem;
+            margin-right: 0;
+            &::before {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+
+        &__geo {
+            font-size: 2.4rem;
+            line-height: 140%;
+            padding-left: 7.8rem;
+            &::before {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+
+        &__all-btn {
+            width: 26.8rem;
+            height: 9.4rem;
+            border-radius: 3.2rem;
+            font-size: 2.4rem;
+        }
+
+    }
+
+ }

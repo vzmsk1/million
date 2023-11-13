@@ -180,3 +180,23 @@
 
     
 }
+
+
+@media (max-width: 48em) {
+
+    .catalog {
+        &__wrap-filters-btns {
+            display: none;
+        }
+
+        &__swiper-inner {
+            display: none;
+        }
+
+        &__title {
+            font-size: 6.4rem;
+            margin-bottom: 6.4rem;
+        }
+    }
+
+ }

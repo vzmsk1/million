@@ -11,6 +11,16 @@
     &__wrapper-mob {
         display: none;
     }
+
+    &__slide {
+        img {
+            mix-blend-mode: luminosity;
+        }
+    }
+
+    &__swiper-wrapper  {
+        align-items:center;
+    }
 }
 
 

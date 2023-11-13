@@ -33,6 +33,11 @@
         margin-right: 6rem;
         display: inline-block;
         max-width: fit-content;
+        transition: color 0.2s;
+        &:hover {
+            transition: color 0.2s;
+            color: #ED1E79;
+        }
       }
 
       li:nth-child(2n) {

@@ -32,7 +32,13 @@ input::placeholder {
   color: #fff;
   line-height: 138.889%;
   width: fit-content;
-
+  border: 1.3px solid #fff;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transition: 0.2s ease-in-out;
+    border: 1.3px solid #ED1E79;
+    color: #ED1E79;
+  }
   &--black {
     padding: 2.5rem 3.1rem;
     color: #1c1c1c;
@@ -99,6 +105,7 @@ input::placeholder {
     background-color: #ffffff;
   }
 }
+
 
 // --------------------------------------------------------------------------
 
