@@ -2,8 +2,11 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
+import * as d3 from "d3";
 // init Swiper:
+
+
 
 export const rem = function (rem) {
   if ($(window).width() > 768) {
@@ -80,22 +83,20 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 
 
-const swiperPartners = new Swiper('.partners__swiper', {
-  modules: [Navigation, Pagination, EffectFade],
-	speed: 2000, 
+const swiperPartnersTwo = new Swiper('.partners__swiper', {
+  slidesPerView: 'auto',
+	modules: [Autoplay],
   spaceBetween: rem(16.5), 
-	loop: true, 
-	allowTouchMove: false, 
+  // allowTouchMove: false,
+  speed: 2000, 
+  freeMode: true,
+  loop: true,
 	autoplay: { 
  		delay: 0,
 		disableOnInteraction: false, // 
 	},
-	breakpoints: { 
-		769: {
-			slidesPerView: 5,
-		},
-	
-	},
+ 
+
 });
 
 
@@ -169,4 +170,160 @@ if (document.getElementById('map')) {
 
 
 }
+
+
+
+
+$('.map-class g').on('click', function(){
+  const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
+  $('.map-class g').not(this).removeClass('active').show(200);
+  $(this).toggleClass('active').fadeIn(200);
+  $('.p-map__box').not(this).removeClass('active').show(200);
+  info.toggleClass('active').fadeIn(200);
+  
+});
+
+$(document).mouseup(function (e) {
+  var container = $(".p-map__box");
+  if (container.has(e.target).length === 0){
+      container.removeClass('active');
+  }
+});
+
+$('.map-class g').hover(function(){
+  const info = $(`.world-container-map-info-item[data-card='${$(this).attr('id')}']`);
+  $('.map-class g').not(this).removeClass('hover-g').show(200);
+  $(this).toggleClass('hover-g').fadeIn(200);
+  info.not(this).removeClass('hover-g').show(200);
+  info.toggleClass('hover-g').fadeIn(200);
+});
+
+
+$('.world-container-filter--item').on('click', function(){
+  $(this).parents('.world-container-filter').find('.world-container-filter--item').removeClass('active')
+  $(this).addClass('active')
+})
+
+
+
+
+
+
+
+
+
+
+
+$('.p-map__floor').click(function () {
+  var id = $(this).attr('data-tab'),
+    content = $('.p-map__content[data-tab="' + id + '"]');
+
+  $('.p-map__floor.active').removeClass('active'); // 1
+  $(this).addClass('active'); // 2
+
+  $('.p-map__content.active').removeClass('active'); // 3
+  content.addClass('active'); // 4
+});
+
+
+
+
+let data = [], width = 801, height = 494, numPoints = 100;
+
+let zoom = d3.zoom()
+	.scaleExtent([0.25, 10])
+	.on('zoom', handleZoom);
+
+function updateData() {
+	data = [];
+	for(let i=0; i<numPoints; i++) {
+		data.push({
+			id: i,
+			x: Math.random() * width,
+			y: Math.random() * height
+		});
+	}
+}
+
+function initZoom() {
+	d3.select('.content-svg')
+		.call(zoom);
+}
+
+function handleZoom(e) {
+	d3.select('.content-svg g')
+		.attr('transform', e.transform);
+}
+
+function zoomIn() {
+	d3.select('.content-svg')
+		.transition()
+		.call(zoom.scaleBy, 2);
+}
+
+function zoomOut() {
+	d3.select('.content-svg')
+		.transition()
+		.call(zoom.scaleBy, 0.5);
+}
+
+
+
+// function resetZoom() {
+// 	d3.select('svg')
+// 		.transition()
+// 		.call(zoom.scaleTo, 1);
+// }
+
+// function center() {
+// 	d3.select('svg')
+// 		.transition()
+// 		.call(zoom.translateTo, 0.5 * width, 0.5 * height);
+// }
+
+// function panLeft() {
+// 	d3.select('svg')
+// 		.transition()
+// 		.call(zoom.translateBy, -50, 0);
+// }
+
+// function panRight() {
+// 	d3.select('svg')
+// 		.transition()
+// 		.call(zoom.translateBy, 50, 0);
+// }
+
+// function update() {
+// 	d3.select('content-svg g')
+// 		.selectAll('circle')
+// 		.data(data)
+// 		.join('circle')
+// 		.attr('cx', function(d) { return d.x; })
+// 		.attr('cy', function(d) { return d.y; })
+// 		.attr('r', 3);
+// }
+
+initZoom();
+
+
+const zoomPlus = document.querySelector('.p-map__zoom-plus');
+const zoomMinus = document.querySelector('.p-map__zoom-minus');
+
+
+if(zoomPlus) {
+  zoomPlus.addEventListener('click',() => {
+    zoomIn();
+ });
+}
+
+if(zoomMinus) {
+  zoomMinus.addEventListener('click',() => {
+    zoomOut();
+  });
+  
+}
+
+
+
+
 

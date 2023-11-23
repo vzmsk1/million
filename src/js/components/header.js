@@ -1,3 +1,4 @@
+
 const rem = function (rem) {
 	if ($(window).width() > 768) {
 		return 0.005208335 * $(window).width() * rem;

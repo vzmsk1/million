@@ -21,6 +21,11 @@
     &__swiper-wrapper  {
         align-items:center;
     }
+
+    &__swiper {
+        width: 100%;
+        overflow: hidden;
+    }
 }
 
 

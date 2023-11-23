@@ -19,6 +19,7 @@ const entryPoints = {
   catalog: path.resolve(__dirname, 'src', 'index.js'),
   markets: path.resolve(__dirname, 'src', 'index.js'),
   catalogtwo: path.resolve(__dirname, 'src', 'index.js'),
+  pmap: path.resolve(__dirname, 'src', 'index.js'),
   alllistst: path.resolve(__dirname, 'src', 'index.js'),
   'about-us': path.resolve(__dirname, 'src', 'index.js'),
 
