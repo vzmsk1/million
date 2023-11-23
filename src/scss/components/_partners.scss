@@ -13,8 +13,13 @@
     }
 
     &__slide {
+        max-width: fit-content;
+        max-height: fit-content;
         img {
             mix-blend-mode: luminosity;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
     }
 

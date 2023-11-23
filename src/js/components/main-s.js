@@ -88,7 +88,7 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
 	modules: [Autoplay],
   spaceBetween: rem(16.5), 
   // allowTouchMove: false,
-  speed: 2000, 
+  speed: 5500, 
   freeMode: true,
   loop: true,
 	autoplay: { 
