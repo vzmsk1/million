@@ -136,6 +136,7 @@
 .market-box-b {
     border-radius: 2rem;
     width: 56rem;
+    height: 42.3rem;
     display: flex;
     flex-direction: column;
     background:  #FFF;
@@ -209,6 +210,11 @@
         margin-right: 0.8rem;
         padding: 1.4rem 2.8rem;
         margin-bottom: 0.8rem;
+    }
+
+
+    &__tag:last-child {
+        margin-right: 0;
     }
 
 
@@ -353,6 +359,10 @@
             margin-right: 2rem;
             font-size: 2rem;
             height: 5rem;
+        }
+
+        &__tag:last-child {
+            margin-right: 0;
         }
 
         &__status {

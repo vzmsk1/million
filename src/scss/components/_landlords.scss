@@ -107,6 +107,14 @@
             margin-bottom: 2.4rem;
             position: relative;
             display: block;
+            &:hover {
+               
+                &::before {
+                    transform: translateX(0.4rem);
+                    transition: 0.2s ease-in-out;
+                }
+            }
+
             &::before {
                 position: absolute;
                 content:'';
@@ -184,6 +192,11 @@
                 align-items:center;
                 width: 23rem;
                 height: 6.5rem;
+                &:hover {
+                    transition: 0.2s ease-in-out;
+                    background: #ED1E79;
+                    color: #fff;
+                }
 
             }
         }

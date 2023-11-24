@@ -8,21 +8,43 @@
                 <div class="application__left-text">
                     Крупнейший в Москве мебельный центр Миллион мелочей — это 3 этажа эффективных торговых площадей, организованных таким образом, чтобы гарантировать максимально комфортные рабочие условия для арендаторов и обеспечить высокий уровень проходимости каждого магазина, вне зависимости от места его расположения!
                 </div>
-                <form action="" class="form">
+                <form id="form" action="" class="form">
                    
                         <div class="form__inner">
-                            <input type="text" placeholder="Имя">
-                            <input type="text" placeholder="E-mail">
+                            <div class="form__inner-wrap">
+                                <input id="username" type="text" placeholder="Имя">
+                                <small></small>
+                            </div>
+                            <div class="form__inner-wrap">
+                                <input id="email" type="text" placeholder="E-mail">
+                                <small></small>
+                            </div>
+                            
                         </div>
                         <div class="form__inner">
-                            <input type="text" placeholder="Телефон">
-                            <input type="text" placeholder="Площадь">
+                            <div class="form__inner-wrap">
+                                <input id="phone-mask" type="tel" placeholder="Телефон">
+                                <small></small>
+                            </div>
+                            <div class="form__inner-wrap">
+                                <input id="square" type="text" placeholder="Площадь">
+                                <small></small>
+                            </div>
+                           
                         </div>
                         <div class="form__inner form__inner--big">
-                            <input type="text" placeholder="Название компании">
+                            <div class="form__inner-wrap">
+                                <input id="company-name" type="text" placeholder="Название компании">
+                                <small></small>
+                            </div>
+                            
                         </div>
-                        <div class="form__inner">
-                            <textarea placeholder="Область деятельности"></textarea>
+                        <div class="form__inner form__inner--textarea">
+                            <div class="form__inner-wrap">
+                                <textarea id="form-activity" placeholder="Область деятельности"></textarea>
+                                <small></small>
+                            </div>
+                            
                         </div>
                         <div class="form__btns">
                             <div class="example-2">
@@ -35,7 +57,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <button class="form__submit">
+                            <button type="submit" class="form__submit">
                                 отправить
                             </button>
                         </div>

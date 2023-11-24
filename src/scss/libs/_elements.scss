@@ -76,6 +76,27 @@ input::placeholder {
     .swiper-pagination-bullet:last-child {
       margin-right: 0;
     }
+
+
+
+    .swiper-pagination-bullet-one {
+      border-radius: 0.2rem;
+      opacity: 0.7;
+      background: #fff;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+
+    .swiper-pagination-bullet-one-active {
+      background: #fff;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-one:last-child {
+      margin-right: 0;
+    }
   }
 }
 

@@ -62,7 +62,84 @@
         input {
             width: 100%;
         }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .form__inner-wrap  {
+            width: 100%;
+            input {
+                width: 100%;
+            }
+        }
+
+        .form__inner {
+            width: 100%;
+        }
     }
+
+
+    &__inner-wrap {
+        textarea {
+            width: 100%;
+        }
+    }
+
+    &__inner--textarea {
+        width: 100%;
+
+        .form__inner-wrap  {
+            width: 100%;
+           textarea {
+                width: 100%;
+            }
+        }
+
+        .form-control {
+            width: 100%;
+        }
+    }
+    
+
+    .form-control {
+        small {
+          
+            font-size: 1.4rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            display: block;
+        }
+    }
+
+    .form-control.success {
+        small {
+            display: block;
+        }
+    }
+    .form-control.error {
+        small {
+            color:  #ED1E79;
+            font-size: 1.4rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            display: block;
+        }
+
+        input {
+            color: #ED1E79;
+            border: 1px solid  #ED1E79;
+        }
+
+        textarea {
+            color: #ED1E79;
+            border: 1px solid  #ED1E79;
+        }
+    }
+
+   
 
     
 
@@ -92,6 +169,11 @@
         align-items: center;
         color: #FFF;
         font-size: 1.8rem;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background: #ED1E79;
+            color: #fff;
+        }
     }
 
     &__btns {
@@ -108,6 +190,12 @@
         font-size: 1.8rem;
         color:#1C1C1C;
         padding-left: 7.8rem;
+        cursor: pointer;
+        &:hover {
+            transition: 0.2s ease-in-out;
+            background: #ED1E79;
+            color: #fff;
+        }
     }
 
 
@@ -214,6 +302,17 @@
             flex-wrap: wrap;
         }
 
+        .form-control.error {
+
+            small {
+                font-size: 2rem;
+                margin-bottom: 2.4rem;
+            }
+        }
+
+        
+
+
         .example-2 .btn-tertiary {
             height: 9.4rem;
             display: flex;
@@ -259,6 +358,7 @@
             width: 26.6rem;
             height: 9.4rem;
             font-size: 2.4rem;
+            
         }
 
 

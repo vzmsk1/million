@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import * as d3 from "d3";
+
 // init Swiper:
 
 
@@ -17,12 +18,13 @@ export const rem = function (rem) {
 };
 
 const mainSwiperOne = new Swiper('.main__swiper-one', {
-  modules: [Navigation, Pagination, EffectFade],
+  modules: [Navigation, Pagination, EffectFade, Autoplay],
   slidesPerView: 1,
   wrapperClass: 'main__swiper-wrapper-one',
   slideClass: 'main__one-s',
   speed: 500,
-  autoplay: 1000,
+  loop: true,
+  autoplay: true,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
@@ -30,25 +32,26 @@ const mainSwiperOne = new Swiper('.main__swiper-one', {
 
   on: {
     slideChange: function (mainSwiperOne) {
-      $('.swiper-pagination-bullet').removeClass(
-        'swiper-pagination-bullet-active'
+      $('.swiper-pagination-bullet-one').removeClass(
+        'swiper-pagination-bullet-one-active'
       );
       $(
-        '.swiper-pagination-bullet:nth-child(' +
+        '.swiper-pagination-bullet-one:nth-child(' +
           ((mainSwiperOne.realIndex % 3) + 1) +
           ')'
-      ).addClass('swiper-pagination-bullet-active');
+      ).addClass('swiper-pagination-bullet-one-active');
     },
   },
 });
 
 const mainSwiperTwo = new Swiper('.main__swiper-two', {
-  modules: [Navigation, Pagination, EffectFade],
+  modules: [Navigation, Pagination, EffectFade, Autoplay],
   slidesPerView: 1,
   wrapperClass: 'main__swiper-wrapper-two',
   slideClass: 'main__slide-t',
   speed: 500,
-  autoplay: 1000,
+  loop: true,
+  autoplay: true,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
@@ -84,16 +87,25 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 
 const swiperPartnersTwo = new Swiper('.partners__swiper', {
-  slidesPerView: 'auto',
+  slidesPerView: '3',
 	modules: [Autoplay],
-  spaceBetween: rem(16.5), 
+  spaceBetween: rem(6.3), 
   // allowTouchMove: false,
   speed: 5500, 
-  freeMode: true,
+ 
   loop: true,
 	autoplay: { 
  		delay: 0,
 		disableOnInteraction: false, // 
+	},
+
+
+  breakpoints: {
+		769: {
+      slidesPerView: 'auto',
+      modules: [Autoplay],
+      spaceBetween: rem(16.5), 
+		},
 	},
  
 
@@ -322,8 +334,113 @@ if(zoomMinus) {
   });
   
 }
+jQuery(function($){
+  $('#phone-mask').mask("+7(999) 999-9999");
+});
 
+const phoneMask = document.getElementById('phone-mask');
 
+!(function () {
+  const form = document.getElementById("form");
+  const userName = document.getElementById("username");
+  const email = document.getElementById("email");
+  // const phone = document.getElementById("phone");
+  const companyName = document.getElementById("company-name");
+  const formActivity = document.getElementById("form-activity");
+  const square = document.getElementById("square");
+  
 
+  // Показываем ошибку под полем
+  function showError(input, message) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control error";
+    const small = formControl.querySelector("small");
+    small.innerText = message;
+  }
+
+  // Показываем, что поле заполнено верно
+  function showSuccess(input, textarea) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control success";
+  }
+
+  // Проверяем адрес электронной почты на правильность
+  function checkEmail(input) {
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(input.value.trim())) {
+      showSuccess(input);
+    } else {
+      showError(input, "Адрес электронной почты имеет неверный формат");
+    }
+  }
+
+  // Проверка обязательных полей
+  /**
+   *
+   * @param {HTMLElement[]} inputElements
+   * @returns {boolean}
+   */
+  function checkRequired(inputElements) {
+    let isRequired = false;
+    inputElements.forEach(function (input) {
+      if (input.value.trim() === "") {
+        showError(input, `Требуется задать значение для поля ${getFieldName(input)}`);
+        isRequired = true;
+      } else {
+        showSuccess(input);
+      }
+    });
+
+    return isRequired;
+  }
+
+  // Проверяем значение поля на соответствие минимальной и максимальной длине
+  function checkLength(input, min, max) {
+    if (input.value.length < min) {
+      showError(
+        input,
+        `Поле  должно быть длиной не менее ${min} символов`
+      );
+    } else if (input.value.length > max) {
+      showError(
+        input,
+        `Поле  не должно быть длиной более ${max} символов`
+      );
+    } else {
+      showSuccess(input);
+    }
+  }
+
+  // // Проверка соответствия паролей
+  // function checkPasswordsMatch(input1, input2) {
+  //   if (input1.value !== input2.value) {
+  //     showError(input2, "Пароли не совпадают");
+  //   }
+  // }
+
+  // Получаем имя поля
+  function getFieldName(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+  }
+
+  // Устанавливаем слушатели событий на форму
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+    if (checkRequired([userName, email,companyName,square,phoneMask])) {
+      checkLength(userName, 3, 15);
+      checkLength(companyName, 3, 15);
+      checkEmail(email);
+      checkLength(formActivity, 5, 100);
+      checkLength(square, 3, 15);
+      checkLength(phoneMask, 11, 11);
+      
+      
+    }
+  });
+
+})();
 
 

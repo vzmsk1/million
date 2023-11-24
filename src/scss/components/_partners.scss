@@ -2,11 +2,21 @@
     padding-top: 8rem;
     padding-bottom: 8rem;
     border-bottom: 1px solid #C7C7C7;
+
+    .container {
+        width: 100%;
+    }
     &__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+
+
+    .swiper-wrapper {
+        -webkit-transition-timing-function: linear !important;
+                transition-timing-function: linear !important;
+      }
 
     &__wrapper-mob {
         display: none;
@@ -15,11 +25,20 @@
     &__slide {
         max-width: fit-content;
         max-height: fit-content;
+        &:hover {
+            img {
+                transition: filter 0.2s ease-in-out;
+                filter: initial;
+            }
+        }
         img {
-            mix-blend-mode: luminosity;
+            transition: filter 0.2s ease-in-out;
             width: auto;
             height: auto;
             object-fit: contain;
+            -webkit-filter: grayscale(1); /* Webkit браузеры */  
+            filter: gray; /* для IE6-9 */  
+            filter: grayscale(1); /* W3C */  
         }
     }
 
