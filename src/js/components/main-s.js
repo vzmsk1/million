@@ -425,21 +425,23 @@ const phoneMask = document.getElementById('phone-mask');
   }
 
   // Устанавливаем слушатели событий на форму
+    if(form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
   
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-    if (checkRequired([userName, email,companyName,square,phoneMask])) {
-      checkLength(userName, 3, 15);
-      checkLength(companyName, 3, 15);
-      checkEmail(email);
-      checkLength(formActivity, 5, 100);
-      checkLength(square, 3, 15);
-      checkLength(phoneMask, 11, 11);
-      
-      
+      if (checkRequired([userName, email,companyName,square,phoneMask])) {
+        checkLength(userName, 3, 15);
+        checkLength(companyName, 3, 15);
+        checkEmail(email);
+        checkLength(formActivity, 5, 100);
+        checkLength(square, 3, 15);
+        checkLength(phoneMask, 11, 11);
+        
+        
+      }
+      });
     }
-  });
+  
 
 })();
 

@@ -6,9 +6,11 @@
     display: block;
     width: 100%;
     &__desk {
-      display: flex;
+      display: grid;
+      grid-template-columns: 35rem 30rem 40rem 14rem;
       justify-content: space-between;
-      align-items:center;
+        align-items:center;
+     
     }
 
     &__block {
