@@ -159,3 +159,41 @@ $( document ).ready(function() {
 
 
 
+// d3.selectAll('.content-svg').each(function () {
+ 
+
+//     let zoom = d3.zoom()
+//       .scaleExtent([0.25, 10])
+//       .on('zoom', handleZoom);
+  
+//     function handleZoom(e) {
+//         d3.select(this).select('g')
+//           .attr('transform', e.transform);
+        
+//     }
+  
+  
+//     function initZoom() {
+//       d3.select(this)
+//         .call(zoom);
+//     }
+  
+  
+//     function zoomIn() {
+//       d3.select(this)
+//         .transition()
+//         .call(zoom.scaleBy, 2);
+//     }
+  
+//     function zoomOut() {
+//       d3.select(this)
+//         .transition()
+//         .call(zoom.scaleBy, 0.5);
+//     }
+  
+  
+//     initZoom();
+  
+//     console.log(d3.select(this));
+//     console.log(d3.select(this).select('g'));
+//   });

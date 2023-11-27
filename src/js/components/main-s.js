@@ -186,9 +186,9 @@ if (document.getElementById('map')) {
 
 
 
-$('.map-class g').on('click', function(){
+$('.g-box').on('click', function(){
   const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
-  $('.map-class g').not(this).removeClass('active').show(200);
+  $('.g-box').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
   info.toggleClass('active').fadeIn(200);
@@ -202,9 +202,9 @@ $(document).mouseup(function (e) {
   }
 });
 
-$('.map-class g').hover(function(){
+$('.g-box').hover(function(){
   const info = $(`.world-container-map-info-item[data-card='${$(this).attr('id')}']`);
-  $('.map-class g').not(this).removeClass('hover-g').show(200);
+  $('.g-box').not(this).removeClass('hover-g').show(200);
   $(this).toggleClass('hover-g').fadeIn(200);
   info.not(this).removeClass('hover-g').show(200);
   info.toggleClass('hover-g').fadeIn(200);
@@ -240,44 +240,35 @@ $('.p-map__floor').click(function () {
 
 
 
-let data = [], width = 801, height = 494, numPoints = 100;
 
-let zoom = d3.zoom()
-	.scaleExtent([0.25, 10])
-	.on('zoom', handleZoom);
 
-function updateData() {
-	data = [];
-	for(let i=0; i<numPoints; i++) {
-		data.push({
-			id: i,
-			x: Math.random() * width,
-			y: Math.random() * height
-		});
-	}
-}
+// let zoom = d3.zoom()
+// 	.scaleExtent([0.25, 10])
+// 	.on('zoom', handleZoom);
 
-function initZoom() {
-	d3.select('.content-svg')
-		.call(zoom);
-}
 
-function handleZoom(e) {
-	d3.select('.content-svg g')
-		.attr('transform', e.transform);
-}
 
-function zoomIn() {
-	d3.select('.content-svg')
-		.transition()
-		.call(zoom.scaleBy, 2);
-}
+// function initZoom() {
+// 	d3.select('.content-svg').select()
+// 		.call(zoom);
+// }
 
-function zoomOut() {
-	d3.select('.content-svg')
-		.transition()
-		.call(zoom.scaleBy, 0.5);
-}
+// function handleZoom(e) {
+// 	d3.select('.content-svg g')
+// 		.attr('transform', e.transform);
+// }
+
+// function zoomIn() {
+// 	d3.select('.content-svg')
+// 		.transition()
+// 		.call(zoom.scaleBy, 2);
+// }
+
+// function zoomOut() {
+// 	d3.select('.content-svg')
+// 		.transition()
+// 		.call(zoom.scaleBy, 0.5);
+// }
 
 
 
@@ -315,8 +306,69 @@ function zoomOut() {
 // 		.attr('r', 3);
 // }
 
-initZoom();
 
+d3.selectAll('.content-svg').each(function () {
+ 
+
+    let zoom = d3.zoom()
+      .scaleExtent([0.25, 10])
+      .on('zoom', handleZoom);
+  
+    function handleZoom(e) {
+        d3.select(this).selectAll('.content-svg g')
+          .attr('transform', e.transform);
+        
+    }
+  
+  
+    function initZoom() {
+      d3.select(this).select()
+        .call(zoom);
+    }
+  
+  
+    function zoomIn() {
+      d3.select(this)
+        .transition()
+        .call(zoom.scaleBy, 2);
+    }
+  
+    function zoomOut() {
+      d3.select(this)
+        .transition()
+        .call(zoom.scaleBy, 0.5);
+    }
+  
+  
+    initZoom();
+  
+    console.log(d3.select(this));
+    console.log(d3.select(this).select('g'));
+  });
+
+
+  $('.p-map__item--bank').on('click', function () {
+    $('.g-bank').toggleClass('active');
+    $(this).toggleClass('active');
+  });
+  
+  $('.p-map__item--toilet').on('click', function () {
+    $('.g-toilet').toggleClass('active');
+    $(this).toggleClass('active');
+  });
+
+  $('.p-map__item--staircase').on('click', function () {
+    $('.g-staircase').toggleClass('active');
+    $(this).toggleClass('active');
+  });
+  $('.p-map__item--exit').on('click', function () {
+    $('.g-box-exit').toggleClass('active');
+    $(this).toggleClass('active');
+  });
+  $('.p-map__item--wardrobe').on('click', function () {
+    $('.g-wardrobe').toggleClass('active');
+    $(this).toggleClass('active');
+  });
 
 const zoomPlus = document.querySelector('.p-map__zoom-plus');
 const zoomMinus = document.querySelector('.p-map__zoom-minus');
@@ -334,9 +386,11 @@ if(zoomMinus) {
   });
   
 }
-jQuery(function($){
-  $('#phone-mask').mask("+7(999) 999-9999");
-});
+
+
+
+
+
 
 const phoneMask = document.getElementById('phone-mask');
 

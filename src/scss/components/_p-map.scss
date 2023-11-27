@@ -161,8 +161,29 @@
         }
     }
 
+    &__item.active {
+        background:  #F1CF57;
+        .p-map__item-text {
+            color: #fff;
+        }
+
+        .p-map__item-icon {
+            svg {
+                fill: #FFF;
+            }
+        }
+    }
+
     &__floor:last-child {
         margin-right: 0;
+    }
+
+    .g-bank.active {
+        path {
+            fill: #F8DE81;
+            transition: 0.2s;
+        }
+        
     }
 
     &__box {
