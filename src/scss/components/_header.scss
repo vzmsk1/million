@@ -227,7 +227,7 @@
             position: relative;
         }
         &-item {
-           
+           position: relative;
             margin-right: 1rem;
             display: inline-block;
             padding-bottom: 1rem;
@@ -272,8 +272,9 @@
             background: #FFF;
             padding: 4.8rem;
             padding-bottom: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            width: max-content;
+            display: flex;
+            flex-direction: column;
            
             &-lists {
                 margin-bottom: 6.4rem;
@@ -293,13 +294,17 @@
                     font-style: normal;
                     font-weight: 600;
                     line-height: normal;
-                    margin-bottom: 1.2rem;
+                    margin-bottom: 3.2rem;
                     transition: color 0.2s;
                     &:hover {
                         transition: color 0.2s;
                         color: #ED1E79;
                     }
                     
+                }
+
+                li:last-child {
+                    margin-bottom: 0;
                 }
             }
         }
@@ -360,7 +365,7 @@
 
     &__menu-item-down-arc {
         position: absolute;
-        width: 100%;
+        width: fit-content;
         top: 24%;
         left: 0;
         display: none;
