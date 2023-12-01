@@ -66,6 +66,16 @@ $( document ).ready(function() {
 
 
 
+    $('.p-map__searh-input')
+    .on('keyup', function(e) {
+    var input = $(this).val();
+    input.length ?
+            $('.p-map__searh-down').addClass('active').fadeIn(200) :
+            $('.p-map__searh-down').removeClass('active').hide(200);
+    });
+
+
+
    
 
     $('.header__bottom-catalog').on('click', function(){
@@ -152,48 +162,36 @@ $( document ).ready(function() {
 
 
         });
-    })
+    });
+
+
+
+    var initBox = false;
+
+function initBoxDown() {
+  if (window.innerWidth <= 768) {
+    if (!initBox) {
+      initBox = true;
+      $('.services-p__box').each(function () {
+        let more = $(this).find('.services-p__box-inner');
+        let hide = $(this).find('.services-p__box-down');
+        hide.hide(0);
+        more.click(function () {
+          hide.slideToggle(300);
+          more.toggleClass('active');
+        });
+      });
+    }
+  } else if (initBox) {
+    
+    initBox = false;
+  }
+}
+initBoxDown();
+window.addEventListener("resize", initBoxDown);
 	
 	
 });
 
 
 
-// d3.selectAll('.content-svg').each(function () {
- 
-
-//     let zoom = d3.zoom()
-//       .scaleExtent([0.25, 10])
-//       .on('zoom', handleZoom);
-  
-//     function handleZoom(e) {
-//         d3.select(this).select('g')
-//           .attr('transform', e.transform);
-        
-//     }
-  
-  
-//     function initZoom() {
-//       d3.select(this)
-//         .call(zoom);
-//     }
-  
-  
-//     function zoomIn() {
-//       d3.select(this)
-//         .transition()
-//         .call(zoom.scaleBy, 2);
-//     }
-  
-//     function zoomOut() {
-//       d3.select(this)
-//         .transition()
-//         .call(zoom.scaleBy, 0.5);
-//     }
-  
-  
-//     initZoom();
-  
-//     console.log(d3.select(this));
-//     console.log(d3.select(this).select('g'));
-//   });

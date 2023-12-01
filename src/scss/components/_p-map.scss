@@ -301,4 +301,290 @@
         opacity: 1;
     }
 
+    &__searh-inner {
+        
+    }
+
+    &__searh-input {
+        width: 100%;
+        border-radius: 2rem;
+        border: 1.3px solid  #C7C7C7;
+        background: none;
+        padding: 2.4rem 3.2rem;
+        color:  #1C1C1C;
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%;
+        display: block;
+        height: 7.8rem;
+    }
+
+    &__searh-input-block {
+        position: relative;
+        height: 7.8rem;
+        &::before {
+            position: absolute;
+            content:'';
+            width: 3.2rem;
+            height: 3.2rem;
+            background-image: url(./assets/images/icon/search.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            right: 3.2rem;
+            top: 2.4rem;
+            
+        } 
+
+    }
+
+    &__searh-down {
+        padding: 3.2rem;
+        border-radius: 20px;
+        border: 1px solid  #C7C7C7;
+        display: none;
+        flex-wrap: wrap;
+       
+    }
+
+    &__searh-down.active {
+        display: flex;
+    }
+
+    &__searh-down-block {
+        margin-right: 13.7rem;
+        margin-bottom: 3.2rem;
+    }
+
+    &__searh-down-block:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    &__searh-down-block-box-item {
+        margin-bottom: 2.4rem;
+        color:  #ED1E79;
+        font-size: 1.8rem;
+        cursor: pointer;
+        
+    }
+
+    &__searh-down-item  {
+        color: #1C1C1C;
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 1.6rem;
+        list-style: none;
+        display: block;
+        position: relative;
+        padding-left: 8.2rem;
+        cursor: pointer;
+    }
+
+    &__searh-down-item--floor {
+       span {
+        position: absolute;
+        left: 0;
+       }
+    }
+
+    &__searh-down-block-box-item-arrow {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 48em) {
+    .p-map {
+        margin-top: 2.4rem;
+        &__content {
+            overflow: hidden;
+        }
+
+        &__zoom {
+            position: initial;
+            flex-direction: initial;
+        }
+
+        &__inner {
+            flex-wrap: wrap;
+        }
+
+        &__title {
+            width: 100%;
+            font-size: 6.4rem;
+            margin-bottom: 6.4rem;
+        }
+
+        &__zoom-plus {
+            margin-right: 2rem;
+        }
+
+        &__zoom-plus,
+        &__zoom-minus {
+            margin-bottom: 0;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 2rem;
+            font-size: 3.2rem;
+
+        }
+
+        &__block-text {
+            font-size: 2.4rem;
+            margin-right: 4rem;
+        }
+
+        &__floor {
+            margin-right:  2rem;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 2rem;
+            font-size: 3.2rem;
+        }
+
+        &__item {
+            border-radius: 3.2rem;
+            padding: 0;
+            width: 12.8rem;
+            height: 9.2rem;
+            &-text {
+                display: none;
+            }
+
+            &-icon {
+                margin-right: 0;
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+
+        &__searh-input-block {
+            height: 10.4rem;
+            width: 100%;
+            &::before {
+                width: 4.8rem;
+                height: 4.8rem;
+                top: 2.2rem;
+                right: 4rem;
+            }
+            
+        }
+
+        &__searh-input {
+            padding: 3.2rem 4rem;
+            height: 10.4rem;
+            width: 100%;
+            border-radius: 3.2rem;
+            font-size: 2.4rem;
+        }
+
+        &__searh-down {
+            border-radius: none;
+            border: none;
+            padding: 0;
+            padding-top: 6.4rem;
+            flex-direction: column;
+        }
+
+        &__searh-down-block-box {
+            border-radius: 3.2rem;
+            border: 1.3px solid  #C7C7C7;
+            height: 10.4rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items:center;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            position: relative;
+
+
+        }
+
+        &__searh-down-block-box-item {
+            color:  #1C1C1C;
+            font-size: 2.4rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 140%;
+            font-size: 2.4rem;
+            margin-bottom: 0;
+            transition: 0.2s;
+        }
+
+        &__searh-down-block {
+            margin-right: 0;
+        }
+
+        &__searh-down-lists {
+            border-radius: 3.2rem;
+            border: 1.3px solid  #C7C7C7;
+            padding: 6.4rem;
+        }
+
+        &__searh-down-item {
+           margin-bottom: 4.8rem;
+            font-size: 2.4rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 140%;
+            padding-left: 14.2rem; 
+        }
+
+        &__searh-down-item--floor  {
+            padding-left: 0;
+
+            span {
+             position: initial;
+               display: initial;
+               width: fit-content;
+               margin-right: 5.6rem;
+                
+            }
+        }
+
+
+        &__searh-down-block-box-item-arrow {
+            position: absolute;
+            width: 4rem;
+            height: 4rem;
+            top: 3rem;
+            right: 4rem;
+            display: block;
+            transition: 0.2s;
+            svg {
+                width: 4rem;
+                height: 4rem;
+                fill: none;
+               path {
+                stroke: #1C1C1C;
+               }
+            }
+        }
+
+        &__searh-down-block-box.active {
+            .p-map__searh-down-block-box-item {
+                color:  #ED1E79;
+                transition: 0.2s;
+
+            }
+
+            .p-map__searh-down-block-box-item-arrow {
+                svg {
+                    width: 4rem;
+                    height: 4rem;
+                    fill: none;
+                    transform: rotate(180deg);
+                    transition: 0.2s;
+                   path {
+                    stroke: #ED1E79;
+                   }
+                }
+            }
+            
+        }
+    }
+
 }

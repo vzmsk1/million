@@ -37,8 +37,8 @@ const mainSwiperOne = new Swiper('.main__swiper-one', {
       );
       $(
         '.swiper-pagination-bullet-one:nth-child(' +
-          ((mainSwiperOne.realIndex % 3) + 1) +
-          ')'
+        ((mainSwiperOne.realIndex % 3) + 1) +
+        ')'
       ).addClass('swiper-pagination-bullet-one-active');
     },
   },
@@ -63,23 +63,23 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
       );
       $(
         '.swiper-pagination-bullet:nth-child(' +
-          ((mainSwiperTwo.realIndex % 3) + 1) +
-          ')'
+        ((mainSwiperTwo.realIndex % 3) + 1) +
+        ')'
       ).addClass('swiper-pagination-bullet-active');
     },
   },
 });
 
 const catalogSwiper = new Swiper('.catalog__swiper', {
-	modules: [Navigation, Pagination, EffectFade],
-	spaceBetween: rem(1),
-	slidesPerView: 'auto',
-	wrapperClass: 'catalog__swiper-wrapper',
-	slideClass: 'catalog__slide',
-	navigation: {
+  modules: [Navigation, Pagination, EffectFade],
+  spaceBetween: rem(1),
+  slidesPerView: 'auto',
+  wrapperClass: 'catalog__swiper-wrapper',
+  slideClass: 'catalog__slide',
+  navigation: {
 
-		nextEl: '.catalog__swiper-arrow',
-	},
+    nextEl: '.catalog__swiper-arrow',
+  },
 
 
 });
@@ -88,26 +88,26 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 const swiperPartnersTwo = new Swiper('.partners__swiper', {
   slidesPerView: '3',
-	modules: [Autoplay],
-  spaceBetween: rem(6.3), 
+  modules: [Autoplay],
+  spaceBetween: rem(6.3),
   // allowTouchMove: false,
-  speed: 5500, 
- 
+  speed: 5500,
+
   loop: true,
-	autoplay: { 
- 		delay: 0,
-		disableOnInteraction: false, // 
-	},
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false, // 
+  },
 
 
   breakpoints: {
-		769: {
+    769: {
       slidesPerView: 'auto',
       modules: [Autoplay],
-      spaceBetween: rem(16.5), 
-		},
-	},
- 
+      spaceBetween: rem(16.5),
+    },
+  },
+
 
 });
 
@@ -116,15 +116,15 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
 if (document.getElementById('map')) {
   ymaps.ready(function () {
     var myMap = new ymaps.Map(
-        'map',
-        {
-          center: [55.720702, 37.630104],
-          zoom: 9,
-        },
-        {
-          searchControlProvider: 'yandex#search',
-        }
-      ),
+      'map',
+      {
+        center: [55.720702, 37.630104],
+        zoom: 9,
+      },
+      {
+        searchControlProvider: 'yandex#search',
+      }
+    ),
       // Создаём макет содержимого.
       MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
         '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
@@ -186,23 +186,23 @@ if (document.getElementById('map')) {
 
 
 
-$('.g-box').on('click', function(){
+$('.g-box').on('click', function () {
   const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
   $('.g-box').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
   info.toggleClass('active').fadeIn(200);
-  
+
 });
 
 $(document).mouseup(function (e) {
   var container = $(".p-map__box");
-  if (container.has(e.target).length === 0){
-      container.removeClass('active');
+  if (container.has(e.target).length === 0) {
+    container.removeClass('active');
   }
 });
 
-$('.g-box').hover(function(){
+$('.g-box').hover(function () {
   const info = $(`.world-container-map-info-item[data-card='${$(this).attr('id')}']`);
   $('.g-box').not(this).removeClass('hover-g').show(200);
   $(this).toggleClass('hover-g').fadeIn(200);
@@ -211,7 +211,7 @@ $('.g-box').hover(function(){
 });
 
 
-$('.world-container-filter--item').on('click', function(){
+$('.world-container-filter--item').on('click', function () {
   $(this).parents('.world-container-filter').find('.world-container-filter--item').removeClass('active')
   $(this).addClass('active')
 })
@@ -240,153 +240,125 @@ $('.p-map__floor').click(function () {
 
 
 
+function zoomSvg(svgClassName) {
+  const svg = d3.select(svgClassName);
 
-
-// let zoom = d3.zoom()
-// 	.scaleExtent([0.25, 10])
-// 	.on('zoom', handleZoom);
-
-
-
-// function initZoom() {
-// 	d3.select('.content-svg').select()
-// 		.call(zoom);
-// }
-
-// function handleZoom(e) {
-// 	d3.select('.content-svg g')
-// 		.attr('transform', e.transform);
-// }
-
-// function zoomIn() {
-// 	d3.select('.content-svg')
-// 		.transition()
-// 		.call(zoom.scaleBy, 2);
-// }
-
-// function zoomOut() {
-// 	d3.select('.content-svg')
-// 		.transition()
-// 		.call(zoom.scaleBy, 0.5);
-// }
+  let zoom = d3.zoom()
+    .scaleExtent([0.25, 10])
+    .on('zoom', handleZoom);
 
 
 
-// function resetZoom() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.scaleTo, 1);
-// }
+  function initZoom() {
+    svg.call(zoom);
+  }
 
-// function center() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateTo, 0.5 * width, 0.5 * height);
-// }
+  function handleZoom(e) {
+    svg.select('g')
+      .attr('transform', e.transform);
+  }
 
-// function panLeft() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateBy, -50, 0);
-// }
+  function zoomIn() {
+    svg.transition().call(zoom.scaleBy, 2);
+  }
 
-// function panRight() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateBy, 50, 0);
-// }
-
-// function update() {
-// 	d3.select('content-svg g')
-// 		.selectAll('circle')
-// 		.data(data)
-// 		.join('circle')
-// 		.attr('cx', function(d) { return d.x; })
-// 		.attr('cy', function(d) { return d.y; })
-// 		.attr('r', 3);
-// }
+  function zoomOut() {
+    svg.transition().call(zoom.scaleBy, 0.5);
+  }
 
 
-d3.selectAll('.content-svg').each(function () {
- 
-
-    let zoom = d3.zoom()
-      .scaleExtent([0.25, 10])
-      .on('zoom', handleZoom);
-  
-    function handleZoom(e) {
-        d3.select(this).selectAll('.content-svg g')
-          .attr('transform', e.transform);
-        
-    }
-  
-  
-    function initZoom() {
-      d3.select(this).select()
-        .call(zoom);
-    }
-  
-  
-    function zoomIn() {
-      d3.select(this)
-        .transition()
-        .call(zoom.scaleBy, 2);
-    }
-  
-    function zoomOut() {
-      d3.select(this)
-        .transition()
-        .call(zoom.scaleBy, 0.5);
-    }
-  
-  
-    initZoom();
-  
-    console.log(d3.select(this));
-    console.log(d3.select(this).select('g'));
-  });
+  const zoomPlus = document.querySelector('.p-map__zoom-plus');
+  const zoomMinus = document.querySelector('.p-map__zoom-minus');
 
 
-  $('.p-map__item--bank').on('click', function () {
-    $('.g-bank').toggleClass('active');
-    $(this).toggleClass('active');
-  });
-  
-  $('.p-map__item--toilet').on('click', function () {
-    $('.g-toilet').toggleClass('active');
-    $(this).toggleClass('active');
-  });
+  if (zoomPlus) {
+    zoomPlus.addEventListener('click', () => {
+      zoomIn();
+    });
+  }
 
-  $('.p-map__item--staircase').on('click', function () {
-    $('.g-staircase').toggleClass('active');
-    $(this).toggleClass('active');
-  });
-  $('.p-map__item--exit').on('click', function () {
-    $('.g-box-exit').toggleClass('active');
-    $(this).toggleClass('active');
-  });
-  $('.p-map__item--wardrobe').on('click', function () {
-    $('.g-wardrobe').toggleClass('active');
-    $(this).toggleClass('active');
-  });
+  if (zoomMinus) {
+    zoomMinus.addEventListener('click', () => {
+      zoomOut();
+    });
 
-const zoomPlus = document.querySelector('.p-map__zoom-plus');
-const zoomMinus = document.querySelector('.p-map__zoom-minus');
+  }
 
 
-if(zoomPlus) {
-  zoomPlus.addEventListener('click',() => {
-    zoomIn();
- });
+
+
+  initZoom();
 }
 
-if(zoomMinus) {
-  zoomMinus.addEventListener('click',() => {
-    zoomOut();
-  });
-  
-}
+zoomSvg('.content-svg--one');
+zoomSvg('.content-svg--two');
+zoomSvg('.content-svg--three');
 
+
+
+
+// d3.selectAll('.content-svg').each(function () {
+
+
+//     let zoom = d3.zoom()
+//       .scaleExtent([0.25, 10])
+//       .on('zoom', handleZoom);
+
+//     function handleZoom(e) {
+//         d3.select(this).select('g')
+//           .attr('transform', e.transform);
+
+//     }
+
+
+//     function initZoom() {
+//       d3.select(this).select()
+//         .call(zoom);
+//     }
+
+
+//     function zoomIn() {
+//       d3.select(this)
+//         .transition()
+//         .call(zoom.scaleBy, 2);
+//     }
+
+//     function zoomOut() {
+//       d3.select(this)
+//         .transition()
+//         .call(zoom.scaleBy, 0.5);
+//     }
+
+
+//     initZoom();
+
+//     console.log(d3.select(this));
+//     console.log(d3.select(this).select('g'));
+//   });
+
+
+$('.p-map__item--bank').on('click', function () {
+  $('.g-bank').toggleClass('active');
+  $(this).toggleClass('active');
+});
+
+$('.p-map__item--toilet').on('click', function () {
+  $('.g-toilet').toggleClass('active');
+  $(this).toggleClass('active');
+});
+
+$('.p-map__item--staircase').on('click', function () {
+  $('.g-staircase').toggleClass('active');
+  $(this).toggleClass('active');
+});
+$('.p-map__item--exit').on('click', function () {
+  $('.g-box-exit').toggleClass('active');
+  $(this).toggleClass('active');
+});
+$('.p-map__item--wardrobe').on('click', function () {
+  $('.g-wardrobe').toggleClass('active');
+  $(this).toggleClass('active');
+});
 
 
 
@@ -402,7 +374,7 @@ const phoneMask = document.getElementById('phone-mask');
   const companyName = document.getElementById("company-name");
   const formActivity = document.getElementById("form-activity");
   const square = document.getElementById("square");
-  
+
 
   // Показываем ошибку под полем
   function showError(input, message) {
@@ -479,24 +451,47 @@ const phoneMask = document.getElementById('phone-mask');
   }
 
   // Устанавливаем слушатели событий на форму
-    if(form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-  
-      if (checkRequired([userName, email,companyName,square,phoneMask])) {
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (checkRequired([userName, email, companyName, square, phoneMask])) {
         checkLength(userName, 3, 15);
         checkLength(companyName, 3, 15);
         checkEmail(email);
         checkLength(formActivity, 5, 100);
         checkLength(square, 3, 15);
         checkLength(phoneMask, 11, 11);
-        
-        
+
+
       }
-      });
-    }
-  
+    });
+  }
+
 
 })();
 
 
+var initBox = false;
+
+function initBoxDown() {
+  if (window.innerWidth <= 768) {
+    if (!initBox) {
+      initBox = true;
+      $('.p-map__searh-down-block').each(function () {
+        let more = $(this).find('.p-map__searh-down-block-box');
+        let hide = $(this).find('.p-map__searh-down-lists');
+        hide.hide(0);
+        more.click(function () {
+          hide.slideToggle(300);
+          more.toggleClass('active');
+        });
+      });
+    }
+  } else if (initBox) {
+    
+    initBox = false;
+  }
+}
+initBoxDown();
+window.addEventListener("resize", initBoxDown);
