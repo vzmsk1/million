@@ -55,6 +55,14 @@
             background: #fff;
             border-radius: 1.5rem;
 
+            &:hover {
+                transition: 0.2s;
+                background: #ED1E79;
+               span {
+                color: #fff;
+               }
+            }
+
             span {
                 font-size: 1.8rem;
                 text-align: center;
