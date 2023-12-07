@@ -187,7 +187,7 @@ if (document.getElementById('map')) {
 
 
 $('.g-box').on('click', function () {
-  const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
+  // const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
   $('.g-box').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
