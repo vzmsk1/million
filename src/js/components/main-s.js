@@ -87,7 +87,7 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 
 const swiperPartnersTwo = new Swiper('.partners__swiper', {
-  slidesPerView: 'auto',
+  slidesPerView: 3,
   modules: [Autoplay],
   spaceBetween: rem(6.3),
   allowTouchMove: false,
@@ -103,6 +103,7 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
 
   breakpoints: {
     769: {
+      slidesPerView: 6,
       spaceBetween: rem(16.5),
     },
   },
