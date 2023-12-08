@@ -13,10 +13,7 @@
     }
 
 
-    .swiper-wrapper {
-        -webkit-transition-timing-function: linear !important;
-                transition-timing-function: linear !important;
-      }
+   
 
     &__wrapper-mob {
         display: none;
@@ -42,8 +39,16 @@
         }
     }
 
-    &__swiper-wrapper  {
+    &__slide-box {
+       
+    }
+
+
+    
+
+    &__swiper-wrapper.swiper-wrapper  {
         align-items:center;
+        transition-timing-function: linear;
     }
 
     &__swiper {
@@ -60,9 +65,7 @@
         padding-bottom: 5rem;
         margin-bottom: 18rem;
 
-        &__wrapper {
-            display: none;
-        }
+       
 
        
 

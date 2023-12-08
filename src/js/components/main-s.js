@@ -97,7 +97,7 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
   autoplay: {
     delay: 0,
     disableOnInteraction: false, // 
-    reverseDirection: true,
+    
   },
 
 
