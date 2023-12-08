@@ -97,13 +97,12 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
   autoplay: {
     delay: 0,
     disableOnInteraction: false, // 
+    reverseDirection: true,
   },
 
 
   breakpoints: {
     769: {
-      slidesPerView: 'auto',
-      modules: [Autoplay],
       spaceBetween: rem(16.5),
     },
   },
