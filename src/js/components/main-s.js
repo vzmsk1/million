@@ -87,12 +87,12 @@ const catalogSwiper = new Swiper('.catalog__swiper', {
 
 
 const swiperPartnersTwo = new Swiper('.partners__swiper', {
-  slidesPerView: '3',
+  slidesPerView: 'auto',
   modules: [Autoplay],
   spaceBetween: rem(6.3),
-  // allowTouchMove: false,
+  allowTouchMove: false,
   speed: 5500,
-
+  freeMode: true,
   loop: true,
   autoplay: {
     delay: 0,
@@ -191,7 +191,7 @@ $('.g-box').on('click', function () {
   $('.g-box').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
-  info.toggleClass('active').fadeIn(200);
+  // info.toggleClass('active').fadeIn(200);
 
 });
 
