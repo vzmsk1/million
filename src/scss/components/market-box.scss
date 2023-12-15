@@ -154,10 +154,12 @@
     &__icon {
         height: 6.6rem;
         margin-bottom: 2.4rem;
-        
+        max-width: 30rem;
         img {
             height: 100%;
             width: auto;
+            max-width: 30rem;
+            object-fit: contain;
         }
     }
 
