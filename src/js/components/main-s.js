@@ -197,8 +197,10 @@ $('.g-box').on('click', function () {
 
 $(document).mouseup(function (e) {
   var container = $(".p-map__box");
-  if (container.has(e.target).length === 0) {
+  var gBoxRemove = $(".g-box");
+  if (gBoxRemove && container.has(e.target).length === 0) {
     container.removeClass('active');
+    gBoxRemove.removeClass('active');
   }
 });
 

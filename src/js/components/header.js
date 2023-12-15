@@ -66,13 +66,13 @@ $( document ).ready(function() {
 
 
 
-    $('.p-map__searh-input')
-    .on('keyup', function(e) {
-    var input = $(this).val();
-    input.length ?
-            $('.p-map__searh-down').addClass('active').fadeIn(200) :
-            $('.p-map__searh-down').removeClass('active').hide(200);
-    });
+    // $('.p-map__searh-input')
+    // .on('keyup', function(e) {
+    // var input = $(this).val();
+    // input.length ?
+    //         $('.p-map__searh-down').addClass('active').fadeIn(200) :
+    //         $('.p-map__searh-down').removeClass('active').hide(200);
+    // });
 
 
 
