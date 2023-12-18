@@ -93,6 +93,26 @@
         &__logo {
             margin-right: 4rem;
         }
+
+
+        &__slide {
+        
+            &:hover {
+                img {
+                    transition: filter 0.2s ease-in-out;
+                    filter: initial;
+                }
+            }
+            img {
+                transition: filter 0.2s ease-in-out;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                -webkit-filter: grayscale(1); /* Webkit браузеры */  
+                filter: gray; /* для IE6-9 */  
+                filter: grayscale(1); /* W3C */  
+            }
+        }
        
     }
 }
