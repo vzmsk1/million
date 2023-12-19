@@ -10,10 +10,12 @@
         display: flex;
         justify-content: center;
         align-items:center;
-        
+        border-radius: 2rem;
+        border: 1.3px solid  #C7C7C7;
         margin: 0 auto;
         margin-bottom: 9.6rem;
         position: relative;
+        width: 123rem;
     }
     &__zoom {
         position: absolute;
@@ -401,6 +403,78 @@
         margin-top: 2.4rem;
         &__content {
             overflow: hidden;
+        }
+
+        &__content-block {
+            width: 100%;
+            height: 50rem;
+            overflow: hidden;
+        }
+
+        &__box {
+            
+            &-desk {
+                display: none;
+            }
+
+            &-mob {
+                display: flex;
+            }
+
+            &-mob-block {
+                margin-right: 7rem;
+            }
+
+            &-mob-block:last-child {
+                margin-right: 0;
+            }
+
+            &-mob-title {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            &-mob-link {
+                font-size: 2rem;
+                position: relative;
+                padding-bottom: 1rem;
+                width: fit-content;
+                &::before {
+                    position: absolute;
+                    content:'';
+                    width: 100%;
+                    height: 0.2rem;
+                    bottom: 0;
+                    background-image: url(./assets/images/icon/arrow-mob-down-w.svg);
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+
+            &-mob-close {
+                position: absolute;
+                right: 5rem;
+                top: 2rem;
+                width: 2rem;
+                height: 2rem;
+
+            }
+
+            &-mob-block-w {
+                display: flex;
+                margin-bottom: 3rem;
+            }
+
+            &-mob-logo {
+                max-height: 20rem;
+                max-width: 30rem;
+               img {
+                width: 100%;
+                height: auto;
+               }
+            }
+
+
         }
 
         &__zoom {
