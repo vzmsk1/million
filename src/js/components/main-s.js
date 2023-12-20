@@ -472,15 +472,14 @@ function initBoxDown() {
   if (window.innerWidth <= 768) {
     if (!initBox) {
       initBox = true;
-      $('.p-map__searh-down-block').each(function () {
+      
+      $('.p-map__searh-down-lists').hide(0);
+      $(".p-map__searh-inner").on("click", ".p-map__searh-down-block", function(){
         let more = $(this).find('.p-map__searh-down-block-box');
         let hide = $(this).find('.p-map__searh-down-lists');
-        hide.hide(0);
-        more.click(function () {
-          hide.slideToggle(300);
-          more.toggleClass('active');
-        });
-      });
+        hide.slideToggle(300);
+        more.toggleClass('active');
+      })
     }
   } else if (initBox) {
     

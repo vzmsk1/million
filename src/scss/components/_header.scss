@@ -635,7 +635,7 @@
     &__bottom-form-down  {
         left: 0;
         width: 100%;
-        z-index: 20;
+        z-index: 1000;
         height: 100vh;
     }
 
@@ -692,6 +692,10 @@
             font-size: 3.2rem;
             border-bottom: 1px solid  #C7C7C7;
             border-top: 1px solid  #C7C7C7;
+            a {
+                width: 100%;
+                display: block;
+            }
             &::before {
                 position: absolute;
                 content: '';
