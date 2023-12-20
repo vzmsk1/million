@@ -479,7 +479,7 @@ function initBoxDown() {
         let hide = $(this).find('.p-map__searh-down-lists');
         hide.slideToggle(300);
         more.toggleClass('active');
-      })
+      });
     }
   } else if (initBox) {
     

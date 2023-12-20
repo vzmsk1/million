@@ -95,7 +95,7 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    
     &-left {
       width: 61rem;
     }
@@ -224,6 +224,10 @@
   //   -o-filter: grayscale(1);
   //   border-radius: 2rem;
   // }
+
+  .ymaps-2-1-79-map {
+    border-radius: 2rem;
+  }
 
 
   .ymaps-2-1-79-ground-pane {
