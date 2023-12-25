@@ -5,6 +5,10 @@
     .container {
       
     }
+
+    &__mob-services-down {
+        display: none;
+    }
     &__top {
         display: flex;
         justify-content: space-between;
@@ -499,6 +503,71 @@
         padding: 0;
     }
 
+
+    &__mob-services-down {
+        background: #E6E6E6;
+        padding: 0 3rem;
+        position: absolute;
+        width: 100%;
+        top: 120%;
+        height: fit-content;
+        z-index: 101;
+        display: block;
+        padding-bottom: 100rem;
+        left: -300rem;
+        transition: left 0.5s;
+        z-index: 101;
+    }
+
+
+    &__mob-services-down.active {
+        left: 0;
+        transition: left 0.5s;
+    }
+
+    &__mob-services-down-item {
+        border-radius: 2rem;
+        background: #FFF;
+        padding: 3.2rem;
+        margin-bottom: 3rem;
+        color: var(--, #1C1C1C);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        font-size: 3.2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    &__mob-service-back {
+        font-size: 4rem;
+        padding-left: 8.6rem;
+        position: relative;
+        line-height: normal;
+        margin-bottom: 6.2rem;
+        transform: 0.3s;
+        height: fit-content;
+        &::before {
+            position: absolute;
+            content: '';
+            width: 4rem;
+            height: 4rem;
+            background-image: url(./assets/images/icon/arrow-left-mob.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &__mob-services-down-item {
+        margin-bottom: 3rem;
+    }
+
+   
+
     &__top-mob {
         display: flex;
         justify-content: space-between;
@@ -684,6 +753,7 @@
         display: block;
         left: -300rem;
         transition: left 0.5s;
+        padding-bottom: 100rem;
         &-top-item {
             position: relative;
             width: 100%;
@@ -718,6 +788,12 @@
         &-top-item:last-child {
             border-bottom: none;
         }
+
+
+      
+
+
+        
 
         &-bottom {
             display: flex;
@@ -793,7 +869,7 @@
         height: fit-content;
         z-index: 101;
         display: block;
-        padding-bottom: 18rem;
+        padding-bottom: 100rem;
         left: -300rem;
         transition: left 0.5s;
         &-inner {

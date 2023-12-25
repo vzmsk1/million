@@ -15,9 +15,19 @@ $( document ).ready(function() {
 	$(".header__mob-top-item--catalog").click( function() {
 		$(".header__mob-catalog").addClass("active");
 	});
+
+  $(".header__mob-top-item--services").click( function() {
+		$(".header__mob-services-down").addClass("active");
+	});
+
 	$(".header__mob-catalog-back").click( function() {
 		$(".header__mob-catalog").removeClass("active");
 	});
+
+  $(".header__mob-service-back").click( function() {
+		$(".header__mob-services-down").removeClass("active");
+	});
+  
 	
 	$(".header__bottom-mob-burger").on('click', function() {
 		$(".header__bottom-mob-burger").toggleClass("open");
@@ -75,7 +85,10 @@ $( document ).ready(function() {
     // });
 
 
-
+  //   $('.header__bottom-mob-burger').on('click', function(){
+  //     $('body').toggleClass('active');
+      
+  // });
    
 
     $('.header__bottom-catalog').on('click', function(){
