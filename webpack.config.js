@@ -28,6 +28,10 @@ const entryPoints = {
   'news-chapter': path.resolve(__dirname, 'src', 'index.js'),
   'articles-chapter': path.resolve(__dirname, 'src', 'index.js'),
   'shop-chapter': path.resolve(__dirname, 'src', 'index.js'),
+  'error-page': path.resolve(__dirname, 'src', 'index.js'),
+
+
+  
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы

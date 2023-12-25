@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://api-maps.yandex.ru/2.1/?apikey=2270c81c-1e67-4b97-96f8-42c0f978638e&lang=ru_RU"
+      type="text/javascript"></script>
+    <title>Webpack</title>
+  </head>
+  <body>
+    <include src="./components/header.html"></include>
+    <section class="error-p">
+        <div class="container">
+            <div class="error-p__wrapper">
+                <div class="error-p__left">
+                    <div class="error-p__title">
+                        404
+                    </div>
+                    <div class="error-p__text">
+                        Такой страницы не существует, либо она была удалена
+                    </div>
+                    <a href="#" class="error-p__link">Вернуться на главную</a>
+                </div>
+                <div class="error-p__right">
+                    <img src="./assets/images/icon/chair.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <include src="./components/footer.html"></include>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </body>
+</html>

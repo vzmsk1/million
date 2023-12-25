@@ -1,0 +1,63 @@
+.error-p {
+    padding: 16rem 0;
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+
+    &__title {
+        color: var(--Yellow, #F1CF57);
+        font-size: 22.8rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 6rem;
+    }
+
+    &__text {
+        color: var(--Gray, #808080);
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 2.5rem;
+        margin-bottom: 6rem;
+        width: 35.4rem;
+        
+    }
+
+    &__link {
+        font-size: 1.8rem;
+        font-weight: 800;
+        line-height: 2.5rem;
+        position: relative;
+        padding-bottom: 3rem;
+        display: block;
+        &::before {
+            position: absolute;
+            content:'';
+            width: 13.4rem;
+            height: 1.4rem;
+            background-image: url(./assets/images/market-box/next-link.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            bottom: 0;
+        }
+    }
+
+    &__image {
+        width: 34.5rem;
+        height: 39.8rem;
+        img {
+           
+
+            mix-blend-mode: darken; 
+        }
+    }
+}
