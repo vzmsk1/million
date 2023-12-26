@@ -396,16 +396,31 @@
   // .shop-card__carousel
 
   &__icon {
-    width: 100%;
-    margin-bottom: 4rem;
+    width: 40rem;
+    max-width: 40rem;
+    height: 11rem;
+    max-height: 11rem;
+   
     img {
       width: auto;
+      object-fit: contain;
     }
+  }
+
+  &__top {
+    position: relative;
+    margin-bottom: 6rem;
   }
 
   .link {
     position: absolute;
     right: 3.2rem;
+    top: 0;
+  }
+
+  &__info-wrap {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__carousel {
@@ -461,7 +476,7 @@
   // .shop-card__head
 
   &__head {
-    margin-bottom: 2.1rem;
+    margin-bottom: 3.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -613,6 +628,13 @@
       margin-bottom: 6rem;
       height: 29.2rem;
       border-radius: 2rem;
+    }
+
+    &__icon {
+      width: 30rem;
+      max-width: 30rem;
+      height: 11rem;
+      max-height: 11rem;
     }
     &__head {
       margin-bottom: 7rem;
