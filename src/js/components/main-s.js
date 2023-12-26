@@ -118,7 +118,7 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
 if (document.getElementById('map')) {
   ymaps.ready(function () {
     var myMap = new ymaps.Map('map', {
-            center: [55.756052, 37.665857],
+            center: [55.884721, 37.603720],
             zoom: 16
         }, {
             searchControlProvider: 'yandex#search'
