@@ -254,9 +254,10 @@ $(document).ready(() => {
       if (width < 769) {
         panzoom.zoom(1.5, { animate: false });
       } else {
-        panzoom.zoom(1, { animate: true });
+        setTimeout(() => {
+          panzoom.zoom(1.5, { animate: true });
+        }, 500);
       }
-
       svgContainer.addEventListener('panzoomstart', event => {
         svgContainer.classList.add('no-touch');
       });
