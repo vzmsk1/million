@@ -3,11 +3,9 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 // init Swiper:
-
-
 
 export const rem = function (rem) {
   if ($(window).width() > 768) {
@@ -71,47 +69,37 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
 });
 
 const catalogSwiper = new Swiper('.catalog__swiper', {
-	modules: [Navigation, Pagination, EffectFade],
-	spaceBetween: rem(1),
-	slidesPerView: 'auto',
-	wrapperClass: 'catalog__swiper-wrapper',
-	slideClass: 'catalog__slide',
-	navigation: {
-
-		nextEl: '.catalog__swiper-arrow',
-	},
-
-
+  modules: [Navigation, Pagination, EffectFade],
+  spaceBetween: rem(1),
+  slidesPerView: 'auto',
+  wrapperClass: 'catalog__swiper-wrapper',
+  slideClass: 'catalog__slide',
+  navigation: {
+    nextEl: '.catalog__swiper-arrow',
+  },
 });
-
-
 
 const swiperPartnersTwo = new Swiper('.partners__swiper', {
-  slidesPerView: '3',
-	modules: [Autoplay],
-  spaceBetween: rem(6.3), 
+  slidesPerView: 3,
+  modules: [Autoplay],
+  spaceBetween: rem(6.3),
   // allowTouchMove: false,
-  speed: 5500, 
- 
-  loop: true,
-	autoplay: { 
- 		delay: 0,
-		disableOnInteraction: false, // 
-	},
+  speed: 5500,
 
+  loop: true,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false, //
+  },
 
   breakpoints: {
-		769: {
+    769: {
       slidesPerView: 'auto',
       modules: [Autoplay],
-      spaceBetween: rem(16.5), 
-		},
-	},
- 
-
+      spaceBetween: rem(16.5),
+    },
+  },
 });
-
-
 
 if (document.getElementById('map')) {
   ymaps.ready(function () {
@@ -172,59 +160,41 @@ if (document.getElementById('map')) {
           iconContentLayout: MyIconContentLayout,
         }
       );
-
-
-
-
-
   });
-
-
-
 }
 
-
-
-
-$('.map-class g').on('click', function(){
+$('.map-class g').on('click', function () {
   const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
   $('.map-class g').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
   info.toggleClass('active').fadeIn(200);
-  
 });
 
 $(document).mouseup(function (e) {
-  var container = $(".p-map__box");
-  if (container.has(e.target).length === 0){
-      container.removeClass('active');
+  var container = $('.p-map__box');
+  if (container.has(e.target).length === 0) {
+    container.removeClass('active');
   }
 });
 
-$('.map-class g').hover(function(){
-  const info = $(`.world-container-map-info-item[data-card='${$(this).attr('id')}']`);
+$('.map-class g').hover(function () {
+  const info = $(
+    `.world-container-map-info-item[data-card='${$(this).attr('id')}']`
+  );
   $('.map-class g').not(this).removeClass('hover-g').show(200);
   $(this).toggleClass('hover-g').fadeIn(200);
   info.not(this).removeClass('hover-g').show(200);
   info.toggleClass('hover-g').fadeIn(200);
 });
 
-
-$('.world-container-filter--item').on('click', function(){
-  $(this).parents('.world-container-filter').find('.world-container-filter--item').removeClass('active')
-  $(this).addClass('active')
-})
-
-
-
-
-
-
-
-
-
-
+$('.world-container-filter--item').on('click', function () {
+  $(this)
+    .parents('.world-container-filter')
+    .find('.world-container-filter--item')
+    .removeClass('active');
+  $(this).addClass('active');
+});
 
 $('.p-map__floor').click(function () {
   var id = $(this).attr('data-tab'),
@@ -237,49 +207,39 @@ $('.p-map__floor').click(function () {
   content.addClass('active'); // 4
 });
 
+let data = [],
+  width = 801,
+  height = 494,
+  numPoints = 100;
 
-
-
-let data = [], width = 801, height = 494, numPoints = 100;
-
-let zoom = d3.zoom()
-	.scaleExtent([0.25, 10])
-	.on('zoom', handleZoom);
+let zoom = d3.zoom().scaleExtent([0.25, 10]).on('zoom', handleZoom);
 
 function updateData() {
-	data = [];
-	for(let i=0; i<numPoints; i++) {
-		data.push({
-			id: i,
-			x: Math.random() * width,
-			y: Math.random() * height
-		});
-	}
+  data = [];
+  for (let i = 0; i < numPoints; i++) {
+    data.push({
+      id: i,
+      x: Math.random() * width,
+      y: Math.random() * height,
+    });
+  }
 }
 
 function initZoom() {
-	d3.select('.content-svg')
-		.call(zoom);
+  d3.select('.content-svg').call(zoom);
 }
 
 function handleZoom(e) {
-	d3.select('.content-svg g')
-		.attr('transform', e.transform);
+  d3.select('.content-svg g').attr('transform', e.transform);
 }
 
 function zoomIn() {
-	d3.select('.content-svg')
-		.transition()
-		.call(zoom.scaleBy, 2);
+  d3.select('.content-svg').transition().call(zoom.scaleBy, 2);
 }
 
 function zoomOut() {
-	d3.select('.content-svg')
-		.transition()
-		.call(zoom.scaleBy, 0.5);
+  d3.select('.content-svg').transition().call(zoom.scaleBy, 0.5);
 }
-
-
 
 // function resetZoom() {
 // 	d3.select('svg')
@@ -317,51 +277,47 @@ function zoomOut() {
 
 initZoom();
 
-
 const zoomPlus = document.querySelector('.p-map__zoom-plus');
 const zoomMinus = document.querySelector('.p-map__zoom-minus');
 
-
-if(zoomPlus) {
-  zoomPlus.addEventListener('click',() => {
+if (zoomPlus) {
+  zoomPlus.addEventListener('click', () => {
     zoomIn();
- });
+  });
 }
 
-if(zoomMinus) {
-  zoomMinus.addEventListener('click',() => {
+if (zoomMinus) {
+  zoomMinus.addEventListener('click', () => {
     zoomOut();
   });
-  
 }
-jQuery(function($){
-  $('#phone-mask').mask("+7(999) 999-9999");
+jQuery(function ($) {
+  $('#phone-mask').mask('+7(999) 999-9999');
 });
 
 const phoneMask = document.getElementById('phone-mask');
 
 !(function () {
-  const form = document.getElementById("form");
-  const userName = document.getElementById("username");
-  const email = document.getElementById("email");
+  const form = document.getElementById('form');
+  const userName = document.getElementById('username');
+  const email = document.getElementById('email');
   // const phone = document.getElementById("phone");
-  const companyName = document.getElementById("company-name");
-  const formActivity = document.getElementById("form-activity");
-  const square = document.getElementById("square");
-  
+  const companyName = document.getElementById('company-name');
+  const formActivity = document.getElementById('form-activity');
+  const square = document.getElementById('square');
 
   // Показываем ошибку под полем
   function showError(input, message) {
     const formControl = input.parentElement;
-    formControl.className = "form-control error";
-    const small = formControl.querySelector("small");
+    formControl.className = 'form-control error';
+    const small = formControl.querySelector('small');
     small.innerText = message;
   }
 
   // Показываем, что поле заполнено верно
   function showSuccess(input, textarea) {
     const formControl = input.parentElement;
-    formControl.className = "form-control success";
+    formControl.className = 'form-control success';
   }
 
   // Проверяем адрес электронной почты на правильность
@@ -371,7 +327,7 @@ const phoneMask = document.getElementById('phone-mask');
     if (re.test(input.value.trim())) {
       showSuccess(input);
     } else {
-      showError(input, "Адрес электронной почты имеет неверный формат");
+      showError(input, 'Адрес электронной почты имеет неверный формат');
     }
   }
 
@@ -384,8 +340,11 @@ const phoneMask = document.getElementById('phone-mask');
   function checkRequired(inputElements) {
     let isRequired = false;
     inputElements.forEach(function (input) {
-      if (input.value.trim() === "") {
-        showError(input, `Требуется задать значение для поля ${getFieldName(input)}`);
+      if (input.value.trim() === '') {
+        showError(
+          input,
+          `Требуется задать значение для поля ${getFieldName(input)}`
+        );
         isRequired = true;
       } else {
         showSuccess(input);
@@ -398,15 +357,9 @@ const phoneMask = document.getElementById('phone-mask');
   // Проверяем значение поля на соответствие минимальной и максимальной длине
   function checkLength(input, min, max) {
     if (input.value.length < min) {
-      showError(
-        input,
-        `Поле  должно быть длиной не менее ${min} символов`
-      );
+      showError(input, `Поле  должно быть длиной не менее ${min} символов`);
     } else if (input.value.length > max) {
-      showError(
-        input,
-        `Поле  не должно быть длиной более ${max} символов`
-      );
+      showError(input, `Поле  не должно быть длиной более ${max} символов`);
     } else {
       showSuccess(input);
     }
@@ -425,22 +378,17 @@ const phoneMask = document.getElementById('phone-mask');
   }
 
   // Устанавливаем слушатели событий на форму
-  
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
 
-    if (checkRequired([userName, email,companyName,square,phoneMask])) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (checkRequired([userName, email, companyName, square, phoneMask])) {
       checkLength(userName, 3, 15);
       checkLength(companyName, 3, 15);
       checkEmail(email);
       checkLength(formActivity, 5, 100);
       checkLength(square, 3, 15);
       checkLength(phoneMask, 11, 11);
-      
-      
     }
   });
-
 })();
-
-

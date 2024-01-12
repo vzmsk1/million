@@ -1,8 +1,6 @@
 // air datepicker
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
-// swiper
-
 
 // utils
 import { rem } from '../components/main-s';
