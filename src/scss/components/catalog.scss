@@ -1,0 +1,226 @@
+.catalog {
+    padding-top: 2.9rem;
+    margin-bottom: 18rem;
+    &__title {
+        font-size: 7.4rem;
+        line-height: 9.4rem;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+    }
+
+    &__swiper {
+        margin-bottom: 3.2rem;
+
+    }
+
+    &__swiper-inner {
+        position: relative;
+    }
+
+
+    &__swiper-arrow {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        position: absolute;
+        top: 50%;
+        right: -2.5rem;
+        z-index: 3;
+        transform: translate(0, -50%);
+        width: 7rem;
+        height: 7rem;
+        border-radius: 1rem;
+        border: 1.3px solid var(--Black, #1C1C1C);
+        background: #E6E6E6;
+
+        svg {
+            width: 1.6rem;
+            height: 1.6rem;
+        }
+    }
+
+    .swiper-button-disabled{
+        display:none;   
+    }
+
+    &__slide {
+        max-width: fit-content;
+        max-height: fit-content;
+        &-content {
+            width: 18.2rem;
+            height: 18.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 1.5rem;
+
+            &:hover {
+                transition: 0.2s;
+                background: #ED1E79;
+               span {
+                color: #fff;
+               }
+            }
+
+            span {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+        }
+    }
+
+    &__tegs {
+        min-width: 9.7rem;
+    }
+
+    &__inner-btn {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        margin-top: 6rem;
+       
+
+    }
+
+    &__all-btn {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-radius: 2rem;
+        border: 1px solid  #1C1C1C;
+        width: 19.2rem;
+        height: 6.5rem;
+        font-size: 1.8rem;
+        &:hover {
+            transition: 0.2s;
+                background: #ED1E79;
+                border: 1px solid  #ED1E79;
+                color: #fff;
+        }
+
+
+    }
+
+    &__wrap-filters {
+        display: flex;
+        align-items:center;
+        margin-bottom: 6rem;
+        .search-box {
+            width: 56rem;
+            margin-right: 2rem;
+        }
+
+
+    }
+
+    &__wrapper {
+       display: none;
+        flex-wrap: wrap;
+    }
+
+    &__wrapper.active {
+        display: flex;
+    }
+
+    &__select-one {
+        margin-right: 2rem;
+        width: 56rem;
+    }
+
+    &__select-two {
+        width: 27rem;
+            min-width: 27rem;
+            max-width: 27rem;
+
+            .select {
+                min-width: 27rem;
+            }
+    }
+
+    &__wrap-filters-btns {
+        display: flex;
+        margin-left: auto;
+    }
+
+    &__wrap-filters-btn {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 2.4rem;
+        svg {
+            rect {
+                fill: #C7C7C7;
+            }
+        }
+    }
+
+    &__wrap-filters-btn.active {
+        svg {
+            rect {
+                fill: #F1CF57;
+            }
+        }
+    }
+
+    &__wrap-filters-btn:last-child {
+        margin-right: 0;
+    }
+    
+
+    &__categories {
+        display: flex;
+        margin-bottom: 3.7rem;
+        &-link {
+            display: inline-block;
+            border-radius: 2rem;
+            background: #FFF;
+            font-size: 1.8rem;
+            padding: 2.4rem 3.2rem;
+            margin-right: 2rem;
+        }
+
+        &-link.active {
+            background: #ED1E79;
+            color: #fff;
+        }
+
+        &-link:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+    
+}
+
+
+@media (max-width: 48em) {
+
+    .catalog {
+        &__wrap-filters-btns {
+            display: none;
+        }
+
+        &__swiper-inner {
+            display: none;
+        }
+
+        &__title {
+            font-size: 6.4rem;
+            margin-bottom: 6.4rem;
+        }
+
+        &__select-two {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &__select-one {
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+
+ }

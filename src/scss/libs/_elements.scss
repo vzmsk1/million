@@ -1,0 +1,144 @@
+input[type='search']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+input::placeholder {
+  @extend .txt;
+}
+
+.btn {
+  border-radius: 2rem;
+  border: 1.3px solid #fff;
+  padding: 2.5rem 4.4rem;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  color: #fff;
+  line-height: 138.889%;
+  width: fit-content;
+  border: 1.3px solid #fff;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transition: 0.2s ease-in-out;
+    border: 1.3px solid #ED1E79;
+    color: #ED1E79;
+  }
+  &--black {
+    padding: 2.5rem 3.1rem;
+    color: #1c1c1c;
+    border-color: #1c1c1c;
+  }
+
+  &--yellow {
+    background-color: #f1cf57;
+  }
+}
+
+.pagination {
+  &__bullets {
+    position: absolute;
+    z-index: 3;
+    bottom: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    .swiper-pagination-bullet {
+      border-radius: 0.2rem;
+      opacity: 0.7;
+      background: #fff;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #fff;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet:last-child {
+      margin-right: 0;
+    }
+
+
+
+    .swiper-pagination-bullet-one {
+      border-radius: 0.2rem;
+      opacity: 0.7;
+      background: #fff;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+
+    .swiper-pagination-bullet-one-active {
+      background: #fff;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-one:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.mark {
+  display: inline-block;
+  padding: 1.6rem 2.4rem;
+  border-radius: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #fff;
+
+  &--news {
+    background-color: #f1cf57;
+  }
+
+  &--article {
+    background-color: #3c6a75;
+  }
+
+  &--action {
+    background-color: #ed1e79;
+  }
+
+  &--white {
+    color: #1c1c1c;
+    background-color: #ffffff;
+  }
+}
+
+
+// --------------------------------------------------------------------------
+
+@media (max-width: 48em) {
+  .btn {
+    font-size: 2.4rem;
+    border-radius: 3.2rem;
+  }
+
+  .mark {
+    padding: 1.6rem 2.4rem;
+    border-radius: 1.6rem;
+    font-size: 2rem;
+  }
+}
