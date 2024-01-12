@@ -55,6 +55,14 @@
             background: #fff;
             border-radius: 1.5rem;
 
+            &:hover {
+                transition: 0.2s;
+                background: #ED1E79;
+               span {
+                color: #fff;
+               }
+            }
+
             span {
                 font-size: 1.8rem;
                 text-align: center;
@@ -73,6 +81,7 @@
         align-items:center;
         width: 100%;
         margin-top: 6rem;
+       
 
     }
 
@@ -85,7 +94,12 @@
         width: 19.2rem;
         height: 6.5rem;
         font-size: 1.8rem;
-
+        &:hover {
+            transition: 0.2s;
+                background: #ED1E79;
+                border: 1px solid  #ED1E79;
+                color: #fff;
+        }
 
 
     }
@@ -196,6 +210,16 @@
         &__title {
             font-size: 6.4rem;
             margin-bottom: 6.4rem;
+        }
+
+        &__select-two {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &__select-one {
+            margin-right: 0;
+            width: 100%;
         }
     }
 

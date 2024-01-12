@@ -49,7 +49,7 @@ const mainSwiperTwo = new Swiper('.main__swiper-two', {
   slideClass: 'main__slide-t',
   speed: 500,
   loop: true,
-  autoplay: true,
+  autoplay: false,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
@@ -83,9 +83,9 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
   slidesPerView: 3,
   modules: [Autoplay],
   spaceBetween: rem(6.3),
-  // allowTouchMove: false,
+  allowTouchMove: false,
   speed: 5500,
-
+  freeMode: true,
   loop: true,
   autoplay: {
     delay: 0,
@@ -94,8 +94,7 @@ const swiperPartnersTwo = new Swiper('.partners__swiper', {
 
   breakpoints: {
     769: {
-      slidesPerView: 'auto',
-      modules: [Autoplay],
+      slidesPerView: 5,
       spaceBetween: rem(16.5),
     },
   },
@@ -106,8 +105,9 @@ if (document.getElementById('map')) {
     var myMap = new ymaps.Map(
         'map',
         {
-          center: [55.720702, 37.630104],
-          zoom: 9,
+          center: [55.884721, 37.60372],
+
+          zoom: 16,
         },
         {
           searchControlProvider: 'yandex#search',
@@ -119,25 +119,22 @@ if (document.getElementById('map')) {
       ),
       myPlacemark = new ymaps.Placemark(
         myMap.getCenter(),
+        {},
         {
-          hintContent: 'Собственный значок метки',
-          balloonContent: 'Это красивая метка',
-        },
-        {
-          // Опции.
-          // Необходимо указать данный тип макета.
+          // // Опции.
+          // // Необходимо указать данный тип макета.
           iconLayout: 'default#image',
-          // Своё изображение иконки метки.
-          iconImageHref: 'images/myIcon.gif',
+          // // Своё изображение иконки метки.
+          iconImageHref: 'assets/images/geo-map.svg',
           // Размеры метки.
-          iconImageSize: [30, 42],
+          iconImageSize: [55, 88],
           // Смещение левого верхнего угла иконки относительно
           // её "ножки" (точки привязки).
           iconImageOffset: [-5, -38],
         }
       ),
       myPlacemarkWithContent = new ymaps.Placemark(
-        [55.661574, 37.573856],
+        [55.785979, 37.660521],
         {
           hintContent: 'Собственный значок метки с контентом',
           balloonContent: 'А эта — новогодняя',
@@ -148,7 +145,7 @@ if (document.getElementById('map')) {
           // Необходимо указать данный тип макета.
           iconLayout: 'default#imageWithContent',
           // Своё изображение иконки метки.
-          iconImageHref: 'images/ball.png',
+          iconImageHref: 'assets/images/geo-map.svg',
           // Размеры метки.
           iconImageSize: [48, 48],
           // Смещение левого верхнего угла иконки относительно
@@ -160,29 +157,33 @@ if (document.getElementById('map')) {
           iconContentLayout: MyIconContentLayout,
         }
       );
+
+    myMap.geoObjects.add(myPlacemark).add(myPlacemarkWithContent);
   });
 }
 
-$('.map-class g').on('click', function () {
-  const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
-  $('.map-class g').not(this).removeClass('active').show(200);
+$('.g-box').on('click', function () {
+  // const info = $(`.p-map__box[data-card='${$(this).attr('id')}']`);
+  $('.g-box').not(this).removeClass('active').show(200);
   $(this).toggleClass('active').fadeIn(200);
   $('.p-map__box').not(this).removeClass('active').show(200);
-  info.toggleClass('active').fadeIn(200);
+  // info.toggleClass('active').fadeIn(200);
 });
 
 $(document).mouseup(function (e) {
   var container = $('.p-map__box');
-  if (container.has(e.target).length === 0) {
+  var gBoxRemove = $('.g-box');
+  if (gBoxRemove && container.has(e.target).length === 0) {
     container.removeClass('active');
+    gBoxRemove.removeClass('active');
   }
 });
 
-$('.map-class g').hover(function () {
+$('.g-box').hover(function () {
   const info = $(
     `.world-container-map-info-item[data-card='${$(this).attr('id')}']`
   );
-  $('.map-class g').not(this).removeClass('hover-g').show(200);
+  $('.g-box').not(this).removeClass('hover-g').show(200);
   $(this).toggleClass('hover-g').fadeIn(200);
   info.not(this).removeClass('hover-g').show(200);
   info.toggleClass('hover-g').fadeIn(200);
@@ -196,103 +197,164 @@ $('.world-container-filter--item').on('click', function () {
   $(this).addClass('active');
 });
 
-$('.p-map__floor').click(function () {
-  var id = $(this).attr('data-tab'),
-    content = $('.p-map__content[data-tab="' + id + '"]');
+$(document).ready(() => {
+  let panzoomInstances = [];
+  const width = screen.width;
 
-  $('.p-map__floor.active').removeClass('active'); // 1
-  $(this).addClass('active'); // 2
+  $('.p-map__floor').click(function () {
+    var id = $(this).attr('data-tab'),
+      content = $('.p-map__content[data-tab="' + id + '"]');
 
-  $('.p-map__content.active').removeClass('active'); // 3
-  content.addClass('active'); // 4
-});
+    panzoomInstances.forEach(panzoom => {
+      panzoom.pan(0, 0);
+      panzoom.zoom(width < 769 ? 1.5 : 1, { animate: false });
+    });
 
-let data = [],
-  width = 801,
-  height = 494,
-  numPoints = 100;
+    $('.p-map__floor.active').removeClass('active'); // 1
+    $(this).addClass('active'); // 2
 
-let zoom = d3.zoom().scaleExtent([0.25, 10]).on('zoom', handleZoom);
+    $('.p-map__content.active').removeClass('active'); // 3
+    content.addClass('active'); // 4
+  });
 
-function updateData() {
-  data = [];
-  for (let i = 0; i < numPoints; i++) {
-    data.push({
-      id: i,
-      x: Math.random() * width,
-      y: Math.random() * height,
+  $('.p-map__boxs').on('click', '.p-map__box-desk-close', function (event) {
+    console.log('close');
+    $('.p-map__box').removeClass('active');
+    $('.g-box').removeClass('active');
+  });
+
+  $('.p-map__content-block').on(
+    'click',
+    '.p-map__box-mob-close',
+    function (event) {
+      console.log('close');
+      $('.p-map__box').removeClass('active');
+      $('.g-box').removeClass('active');
+    }
+  );
+
+  const svgContainers = document.querySelectorAll('.content-svg');
+  if (svgContainers.length > 0) {
+    const btnZoomIn = document.querySelector('.p-map__zoom-plus');
+    const btnZoomOut = document.querySelector('.p-map__zoom-minus');
+    svgContainers.forEach((svgContainer, index) => {
+      const panzoom = Panzoom(svgContainer, {
+        contain: 'outside',
+        startScale: width < 769 ? 1.5 : 1,
+        maxScale: width < 769 ? 2.5 : 2,
+        minScale: width < 769 ? 1.5 : 1,
+        startX: 0,
+        startY: 0,
+      });
+      svgContainer.classList.add('no-pan');
+      setTimeout(() => {
+        panzoom.pan(0, 0, { animate: false });
+        svgContainer.classList.remove('no-pan');
+      }, 100);
+      if (width < 769) {
+        panzoom.zoom(1.5, { animate: false });
+      } else {
+        panzoom.zoom(1, { animate: true });
+      }
+
+      svgContainer.addEventListener('panzoomstart', event => {
+        svgContainer.classList.add('no-touch');
+      });
+
+      svgContainer.addEventListener('panzoomend', event => {
+        svgContainer.classList.remove('no-touch'); // => { x: 0, y: 0, scale: 1 }
+      });
+
+      panzoomInstances.push(panzoom);
+    });
+
+    // Обработка событий кнопок зума
+    btnZoomIn.addEventListener('click', () => {
+      panzoomInstances.forEach(panzoom => panzoom.zoomIn());
+    });
+
+    btnZoomOut.addEventListener('click', () => {
+      panzoomInstances.forEach(panzoom => panzoom.zoomOut());
     });
   }
-}
+});
 
-function initZoom() {
-  d3.select('.content-svg').call(zoom);
-}
-
-function handleZoom(e) {
-  d3.select('.content-svg g').attr('transform', e.transform);
-}
-
-function zoomIn() {
-  d3.select('.content-svg').transition().call(zoom.scaleBy, 2);
-}
-
-function zoomOut() {
-  d3.select('.content-svg').transition().call(zoom.scaleBy, 0.5);
-}
-
-// function resetZoom() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.scaleTo, 1);
-// }
-
-// function center() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateTo, 0.5 * width, 0.5 * height);
-// }
-
-// function panLeft() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateBy, -50, 0);
-// }
-
-// function panRight() {
-// 	d3.select('svg')
-// 		.transition()
-// 		.call(zoom.translateBy, 50, 0);
-// }
-
-// function update() {
-// 	d3.select('content-svg g')
-// 		.selectAll('circle')
-// 		.data(data)
-// 		.join('circle')
-// 		.attr('cx', function(d) { return d.x; })
-// 		.attr('cy', function(d) { return d.y; })
-// 		.attr('r', 3);
-// }
-
-initZoom();
-
-const zoomPlus = document.querySelector('.p-map__zoom-plus');
-const zoomMinus = document.querySelector('.p-map__zoom-minus');
-
-if (zoomPlus) {
-  zoomPlus.addEventListener('click', () => {
-    zoomIn();
+$('.p-map__item--bank').on('click', function () {
+  $('.p-map__item').each((id, item) => {
+    console.log(this);
+    if (this !== item) {
+      $(item).removeClass('active');
+    } else {
+      $('.g-toilet').removeClass('active');
+      $('.g-staircase').removeClass('active');
+      $('.g-box-exit').removeClass('active');
+      $('.g-wardrobe').removeClass('active');
+      $('.g-bank').toggleClass('active');
+      $(this).toggleClass('active');
+    }
   });
-}
+});
 
-if (zoomMinus) {
-  zoomMinus.addEventListener('click', () => {
-    zoomOut();
+$('.p-map__item--toilet').on('click', function () {
+  $('.p-map__item').each((id, item) => {
+    console.log(this, item);
+    if (this !== item) {
+      $(item).removeClass('active');
+    } else {
+      $('.g-toilet').toggleClass('active');
+      $('.g-staircase').removeClass('active');
+      $('.g-box-exit').removeClass('active');
+      $('.g-wardrobe').removeClass('active');
+      $('.g-bank').removeClass('active');
+      $(this).toggleClass('active');
+    }
   });
-}
-jQuery(function ($) {
-  $('#phone-mask').mask('+7(999) 999-9999');
+});
+
+$('.p-map__item--staircase').on('click', function () {
+  $('.p-map__item').each((id, item) => {
+    console.log(this, item);
+    if (this !== item) {
+      $(item).removeClass('active');
+    } else {
+      $('.g-staircase').toggleClass('active');
+      $('.g-toilet').removeClass('active');
+      $('.g-box-exit').removeClass('active');
+      $('.g-wardrobe').removeClass('active');
+      $('.g-bank').removeClass('active');
+      $(this).toggleClass('active');
+    }
+  });
+});
+$('.p-map__item--exit').on('click', function () {
+  $('.p-map__item').each((id, item) => {
+    console.log(this, item);
+    if (this !== item) {
+      $(item).removeClass('active');
+    } else {
+      $('.g-box-exit').toggleClass('active');
+      $('.g-staircase').removeClass('active');
+      $('.g-toilet').removeClass('active');
+      $('.g-wardrobe').removeClass('active');
+      $('.g-bank').removeClass('active');
+      $(this).toggleClass('active');
+    }
+  });
+});
+$('.p-map__item--wardrobe').on('click', function () {
+  $('.p-map__item').each((id, item) => {
+    console.log(this, item);
+    if (this !== item) {
+      $(item).removeClass('active');
+    } else {
+      $('.g-wardrobe').toggleClass('active');
+      $('.g-box-exit').removeClass('active');
+      $('.g-staircase').removeClass('active');
+      $('.g-toilet').removeClass('active');
+      $('.g-bank').removeClass('active');
+      $(this).toggleClass('active');
+    }
+  });
 });
 
 const phoneMask = document.getElementById('phone-mask');
@@ -378,17 +440,45 @@ const phoneMask = document.getElementById('phone-mask');
   }
 
   // Устанавливаем слушатели событий на форму
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    if (checkRequired([userName, email, companyName, square, phoneMask])) {
-      checkLength(userName, 3, 15);
-      checkLength(companyName, 3, 15);
-      checkEmail(email);
-      checkLength(formActivity, 5, 100);
-      checkLength(square, 3, 15);
-      checkLength(phoneMask, 11, 11);
-    }
-  });
+      if (checkRequired([userName, email, companyName, square, phoneMask])) {
+        checkLength(userName, 3, 15);
+        checkLength(companyName, 3, 15);
+        checkEmail(email);
+        checkLength(formActivity, 5, 100);
+        checkLength(square, 3, 15);
+        checkLength(phoneMask, 11, 11);
+      }
+    });
+  }
 })();
+
+var initBox = false;
+
+function initBoxDown() {
+  if (window.innerWidth <= 768) {
+    if (!initBox) {
+      initBox = true;
+
+      $('.p-map__searh-down-lists').hide(0);
+      $('.p-map__searh-inner').on(
+        'click',
+        '.p-map__searh-down-block',
+        function () {
+          let more = $(this).find('.p-map__searh-down-block-box');
+          let hide = $(this).find('.p-map__searh-down-lists');
+          hide.slideToggle(300);
+          more.toggleClass('active');
+        }
+      );
+    }
+  } else if (initBox) {
+    initBox = false;
+  }
+}
+initBoxDown();
+window.addEventListener('load', initBoxDown);
+window.addEventListener('resize', initBoxDown);

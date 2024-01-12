@@ -1,6 +1,12 @@
 // air datepicker
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
+// swiper
+import $ from 'jquery';
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
 
 // utils
 import { rem } from '../components/main-s';

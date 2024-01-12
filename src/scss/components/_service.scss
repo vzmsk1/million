@@ -7,6 +7,8 @@
         text-transform: uppercase;
     }
 
+
+    
     &__wrapper {
         display: flex;
        
@@ -248,12 +250,45 @@
 
         &-image {
             position: absolute;
-            bottom:0;
+            bottom: -1rem;
             right: 0;
             width: 26rem;
             height: 16.9rem;
         }
     }
+
+
+    .service-white {
+        transition: 0.2s ease-in-out;
+        &:hover {
+            background: var(--Green, #3C6A75);
+            transition: 0.2s ease-in-out;
+            &::before {
+                background-image: url(./assets/images/icon/white-small-ar.svg);
+            }
+
+            .service-title-box {
+                color: #fff;
+            }
+
+        }
+    }
+
+    .service-color {
+        transition: 0.2s ease-in-out;
+        &:hover {
+            background:  #fff;
+            transition: 0.2s ease-in-out;
+            &::before {
+                background-image: url(./assets/images/icon/arr-next.svg);
+            }
+
+            .service-title-box {
+                color: #1C1C1C;
+            }
+        }
+    }
+
 
 }
 

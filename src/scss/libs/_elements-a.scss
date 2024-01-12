@@ -392,8 +392,37 @@
   border: 1px solid #c7c7c7;
   border-radius: 2rem;
   background-color: #e6e6e6;
-
+  position: relative;
   // .shop-card__carousel
+
+  &__icon {
+    width: 40rem;
+    max-width: 40rem;
+    height: 11rem;
+    max-height: 11rem;
+   
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__top {
+    position: relative;
+    margin-bottom: 6rem;
+  }
+
+  .link {
+    position: absolute;
+    right: 3.2rem;
+    top: 0;
+  }
+
+  &__info-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__carousel {
     position: relative;
@@ -448,7 +477,7 @@
   // .shop-card__head
 
   &__head {
-    margin-bottom: 4.1rem;
+    margin-bottom: 3.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -457,7 +486,7 @@
   // .shop-card__heading
 
   &__heading {
-    max-width: 16.3rem;
+    
   }
 
   // .shop-card__link
@@ -473,7 +502,7 @@
   &__contacts {
     margin-bottom: 3.2rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     column-gap: 4rem;
   }
 
@@ -483,6 +512,7 @@
     display: flex;
     align-items: center;
     column-gap: 1.2rem;
+    margin-bottom: 1rem;
     &::before {
       content: '';
       flex: 0 0 3rem;
@@ -496,6 +526,10 @@
     // .shop-card__group-item_phone
 
     &_phone {
+      
+    }
+
+    &_phone:first-child {
       &::before {
         background-image: url(./assets/images/icon/tel-dark.svg);
       }
@@ -530,13 +564,14 @@
 
   &__info {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+   
+    flex-direction: column;
   }
 
   // .shop-card__label
 
   &__label {
+    width: fit-content;
     &.mark {
       padding: 1.3rem 2.5rem;
     }
@@ -595,11 +630,20 @@
       height: 29.2rem;
       border-radius: 2rem;
     }
+
+    &__icon {
+      width: 30rem;
+      max-width: 30rem;
+      height: 11rem;
+      max-height: 11rem;
+
+    }
     &__head {
       margin-bottom: 7rem;
     }
     &__group-item {
       column-gap: 2rem;
+      margin-bottom: 3rem;
       &::before {
         flex: 0 0 5rem;
         width: 5rem;

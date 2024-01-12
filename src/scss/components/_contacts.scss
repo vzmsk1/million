@@ -95,7 +95,7 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    
     &-left {
       width: 61rem;
     }
@@ -207,23 +207,37 @@
     border-radius: 2rem;
   }
 
-  .ymaps-layers-pane {
-    filter: grayscale(1);
-    -ms-filter: grayscale(1);
-    -webkit-filter: grayscale(1);
-    -moz-filter: grayscale(1);
-    -o-filter: grayscale(1);
+  // .ymaps-layers-pane {
+  //   filter: grayscale(1);
+  //   -ms-filter: grayscale(1);
+  //   -webkit-filter: grayscale(1);
+  //   -moz-filter: grayscale(1);
+  //   -o-filter: grayscale(1);
+  //   border-radius: 2rem;
+  // }
+
+  // .ymaps-2-1-79-map {
+  //   filter: grayscale(1);
+  //   -ms-filter: grayscale(1);
+  //   -webkit-filter: grayscale(1);
+  //   -moz-filter: grayscale(1);
+  //   -o-filter: grayscale(1);
+  //   border-radius: 2rem;
+  // }
+
+  .ymaps-2-1-79-map {
     border-radius: 2rem;
   }
 
-  .ymaps-2-1-79-map {
-    filter: grayscale(1);
+
+  .ymaps-2-1-79-ground-pane {
     -ms-filter: grayscale(1);
-    -webkit-filter: grayscale(1);
-    -moz-filter: grayscale(1);
-    -o-filter: grayscale(1);
-    border-radius: 2rem;
-  }
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(1);
+  -o-filter: grayscale(1);
+  filter: grayscale(1);
+  border-radius: 2rem;
+}
 
   .ymaps-2-1-79-inner-panes {
     border-radius: 2rem;
