@@ -173,7 +173,11 @@ $('.g-box').on('click', function () {
 $(document).mouseup(function (e) {
   var container = $('.p-map__box');
   var gBoxRemove = $('.g-box');
-  if (gBoxRemove && container.has(e.target).length === 0) {
+  if (
+    gBoxRemove &&
+    container.has(e.target).length === 0 &&
+    !e.target.closest('.p-map__zoom')
+  ) {
     container.removeClass('active');
     gBoxRemove.removeClass('active');
   }
