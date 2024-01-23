@@ -1,12 +1,29 @@
 .catalog {
     padding-top: 2.9rem;
-    margin-bottom: 18rem;
+    margin-bottom: 10rem;
     &__title {
         font-size: 7.4rem;
         line-height: 9.4rem;
         text-transform: uppercase;
         margin-bottom: 6rem;
+        font-weight: 400;
     }
+
+    &__reset {
+        border-radius: 1rem;
+        margin-left: auto;
+        border: 1.3px solid #c7c7c7;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
 
     &__swiper {
         margin-bottom: 3.2rem;
@@ -68,6 +85,14 @@
                 text-align: center;
             }
 
+        }
+
+        &-content.active {
+            transition: 0.2s;
+            background: #ED1E79;
+           span {
+            color: #fff;
+           }
         }
     }
 
@@ -200,6 +225,10 @@
 
     .catalog {
         &__wrap-filters-btns {
+            display: none;
+        }
+
+        &__reset {
             display: none;
         }
 

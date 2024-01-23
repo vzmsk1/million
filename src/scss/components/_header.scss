@@ -17,6 +17,8 @@
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 11;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 1.5rem;
     &-inner {
       display: flex;
     }
@@ -32,7 +34,7 @@
         content: '';
         width: 2.4rem;
         height: 2.4rem;
-        background-image: url(./assets/images/icon/geo-pin.svg);
+        background-image: url(./assets/images/icon/buekblack.svg);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         top: 50%;
@@ -276,7 +278,8 @@
       width: max-content;
       display: flex;
       flex-direction: column;
-
+      max-height: 40rem;
+      overflow-y: scroll;
       &-lists {
         margin-bottom: 6.4rem;
         strong {
@@ -307,6 +310,24 @@
         }
       }
     }
+
+    &-item-down::-webkit-scrollbar {
+      width: 1rem;
+      
+    }
+    
+     &-item-down::-webkit-scrollbar-track {
+      background: none;
+      
+    }
+    
+     &-item-down::-webkit-scrollbar-thumb {
+      background-color: #1c1c1c; 
+      border-radius: 0 2rem  2rem 0;
+     
+    
+   
+  }
 
     &-item.active {
       .header__menu-item-link {
